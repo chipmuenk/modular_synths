@@ -1,6 +1,8 @@
 # modular_synths
 Information, schematics and software for modular synths
 
+<img src="kabel_vignette_r.JPG" alt="cables" width="50%"/>
+
 The idea behind this repo is to collect ideas and links concerning electronic music gear using analog modular synths, MIDI modules and maybe FPGAs. And of course to develop own designs.
 
 ## General
