@@ -28,8 +28,10 @@ The idea behind this repo is to collect ideas and links concerning electronic mu
 * [MIDI to CV Skull](https://learn.adafruit.com/circuitpython-midi-to-cv-skull), a MIDI to CV converter shaped like a skull (well ...) using an RPI Pico with an MCP4725 I2C 12 bit DAC (CircuitPython)
 * [Basic MIDI to CV converter](https://www.hackster.io/janost/diy-good-ol-midi-to-cv-d0e2bf) using an AT Tiny and PWM (C)
 
-### MIDI gadgets
-* [MIDI (out), MicroPython and the Raspberry Pi Pico](https://diyelectromusic.wordpress.com/2021/01/23/midi-micropython-and-the-raspberry-pi-pico/), a "Hello World" project by diyelectromusic to write some MIDI commands.
+### MIDI functionality
+* Kevin's diyelectromusic has a great set of basic MIDI projects to get up and running on a RPi Pico with Micropython in no time at all:
+  * [MIDI (out), MicroPython and the Raspberry Pi Pico](https://diyelectromusic.wordpress.com/2021/01/23/midi-micropython-and-the-raspberry-pi-pico/), a "Hello World" project by diyelectromusic to write some MIDI commands.
+  * [MIDI In for 3.3V Microcontrollers](https://diyelectromusic.wordpress.com/2021/02/15/midi-in-for-3-3v-microcontrollers/) 
 
 ## Digital / uC
 
