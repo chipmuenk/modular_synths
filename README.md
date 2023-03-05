@@ -5,7 +5,7 @@ The idea behind this repo is to collect ideas and links concerning analog modula
 
 ## General
 
-Bamanya Brian from Uganda is a true DIY synth guy, on his [Afrorack Youtube channel](https://www.youtube.com/channel/UCPfBqZQ2P8NqY7puxYzirtw) he shows what he calls (Africa's first home made modular synth)[https://youtube.com/watch?v=ov2sEfUv1XY], what it's like to [build a DIY modular synth in Africa](https://youtube.com/watch?v=ov2sEfUv1XY) and demonstrates [some African rhythms on modular synth](https://youtube.com/watch?v=RhWh21uvUZo).
+Bamanya Brian from Uganda is a true DIY synth guy, on his [Afrorack Youtube channel](https://www.youtube.com/channel/UCPfBqZQ2P8NqY7puxYzirtw) he shows what he calls [Africa's first home made modular synth](https://youtube.com/watch?v=ov2sEfUv1XY), what it's like to [how to make cheap synth modules](https://youtube.com/watch?v=eELTtd9Bv-k) and demonstrates [some African rhythms on modular synth](https://youtube.com/watch?v=RhWh21uvUZo). He also shows [how to make a MIDI to CV converter for 5$](https://youtube.com/watch?v=UYeJiPWZZNQ).
 
 ## Analog Hardware
 
