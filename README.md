@@ -44,6 +44,7 @@ The idea behind this repo is to collect ideas and links concerning electronic mu
 ## uC
 
 * [Raspberry Pi Pico: Grundlagen der Energieversorgung / Stromversorgung](https://www.elektronik-kompendium.de/sites/raspberry-pi/2611061.htm), how to power a RPi Pico from (German) via Micro-USB connector, VBUS pin, 3V3 pin or VSYS pin without frying it
+* [EuroPi](https://github.com/Allen-Synthesis/EuroPi) is a fully user reprogrammable module based on the Raspberry Pi Pico.
 * [Arduino Beat Detector](https://projecthub.arduino.cc/mamifero/881c722e-1049-4d82-a91d-56f000ed7b60), using just a coupling capacitor and simple IIR filters to extract beat timing from audio data
 
 ## FPGAs
