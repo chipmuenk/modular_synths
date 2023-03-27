@@ -14,6 +14,11 @@ The idea behind this repo is to collect ideas and links concerning electronic mu
 * [**Notes and Volts**](https://www.notesandvolts.com/) and his [Youtube Channel](https://www.youtube.com/c/NotesAndVolts) have lots of interesting audio projects, mainly built around uCs like the Teensy.
 * [**Rene Schmitz**](https://www.schmitzbits.de/) Schmitzbits is a treasure trove for analog synth related circuits.
 * [**Raymond Schouten**](www.rs-elc.nl) has some very reduced but interesting projects for mixed analog / Arduino synthesizers.
+* Last but not least: Der Subreddit (/r/synthdiy)[https://www.reddit.com/r/synthdiy]
+
+## Mechanics
+
+* 3D-printed front panels on [Printables](https://www.printables.com/de/model/14009-mper-mostly-printed-euro-rack)
 
 ## Analog Hardware
 
