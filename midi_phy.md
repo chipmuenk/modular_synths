@@ -16,14 +16,27 @@ Notes and Volts [MIDI for the Arduino - Circuit Analysis](https://youtube.com/wa
   * **6N138 / 139:** Specified for LED currents in the range 0.5 ... 12 mA and min. current transfer ratios of 300% (6N138) resp. 500% (6N139) with a photo diode / darlington receiver. Min. VCC is specified as 5V, but the collector of the output transistor (Pin 6) can be connected to 3.3V via a pullup resistor in the range 270 ... 470 Ohm. The base of the output transistor (Pin 7) should be tied to ground with 4k7 resistor to speed up turn-off times. Propagation delays are specified with wide variations but 2 us are achievable.
   * **HC11L1:** Receiver is built with a foto transistor, still non-saturated turn-on and turn-off times around 3 us are specified. A non-saturated current transfer ratio of around 100 % is specified. I've obtained good results with this.
 
-  <img src="img/6N138_3V3_470_4k7.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 4k7" width="40%"/>
+<table><tr>
+  <td><img src="img/6N138_3V3_5V_470_4k7.png" alt="6N138 at 3V3 / 5V with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 4k7" width="100%"/></td>
+  <td><img src="img/6N138_3V3_5V_470_10k.png" alt="6N138 at 3V3 /5V with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 10k" width="100%"/></td>
+ </tr></table>
   
-  *6N138 with 3V3 supply, R_LED = 750 Ohm (5 mA), R_RX = 470 Ohm and R_Base = 4k7*
-  
-  <img src="img/6N138_3V3_470_10k.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 10k" width="40%"/>
-  
-  *6N138 with 3V3 supply, R_LED = 750 Ohm (5 mA), R_RX = 470 Ohm and R_Base = 10k*
+  *6N138 with split 3V3 / 5V supply, R_LED = 750 Ohm (5 mA), R_RX = 470 Ohm and R_Base = 4k7 resp. 10k*
 
+<table><tr>
+  <td><img src="img/6N138_3V3_470_4k7.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 4k7" width="100%"/></td>
+  <td><img src="img/6N138_3V3_470_10k.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 10k" width="100%"/></td>
+ </tr></table>
+  
+  *6N138 with 3V3 supply, R_LED = 750 Ohm (5 mA), R_RX = 470 Ohm and R_Base = 4k7 resp. 10k*
+  
+  <table><tr>
+  <td><img src="img/6N138_3V3_470_10k_rise.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 10k (rise)" width="100%"/></td>
+  <td><img src="img/6N138_3V3_470_10k_fall.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = 10k (fall)" width="100%"/></td>
+ </tr></table>
+  
+  *6N138 with 3V3 supply, R_LED = 750 Ohm (5 mA), R_RX = 470 Ohm and R_Base = 10k (details)*
+  
   <img src="img/6N138_3V3_5V_470_inf.png" alt="6N138 at 3V3 with R_LED = 750 Ohm, R_RX = 470 Ohm and R_Base = infinity" width="40%"/>
   
   *6N138 with split 5V / 3V3 supply, R_LED = 750 Ohm (5 mA), R_RX = 470 Ohm and R_Base = infinity*
