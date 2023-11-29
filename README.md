@@ -5,6 +5,17 @@ Information, schematics and software for modular synths
 
 The idea behind this repo is to collect ideas and links concerning electronic music gear using analog modular synths, MIDI modules and maybe FPGAs. And of course to develop own designs.
 
+## Ideas for workshops
+In 2023, an article was published on amazona.de ["Module vom Bausatz bis zur Eigenkreation"](https://www.amazona.de/workshop-eurorack-diy-module-vom-bausatz-bis-zur-eigenkreation/) (German, translated "Modules: From kits to own creations") that gives a very nice overview on the different levels you can construct your own modules. When organizing workshops, it probably makes sense to focus on entry level courses, provideing some theory and of course practical support.
+
+* Construction of a complete module kit, like the [Erica Synths DIY kits](https://www.ericasynths.lv/shop/diy-kits-1/). For intermediate soldering and electronics skills, this should require 1/2 ... 1 day to complete and debug. However, you end up with a single module which could be underwhelming.
+* Compact semimodular synth in the style of [Erica Synth's Bullfrog](https://www.ericasynths.lv/shop/standalone-instruments-1/bullfrog/) or Ray Wilson's Noise Toaster.
+* Hybrid Synth with VCV-Rack
+
+
+### Locations
+Maker spaces, technical museums, universities, synth shops, synth fairs or conferences, ...
+
 ## General
 * [**Moritz Klein**](https://www.youtube.com/c/MoritzKlein0/videos) certainly creates some of best synth related DIY stuff you can find on Youtube. Together with [Erica Synths](https://www.ericasynths.lv/) he even developed a series of educational DIY synth modules [mki x es.EDU](https://www.ericasynths.lv/news/mki-x-esedu/).
 * [**Look Mum No Computer**](https://www.lookmumnocomputer.com/) and especially his [Youtube Channel](https://www.youtube.com/@LOOKMUMNOCOMPUTER/videos) breathe a true punky DIY spirit!  Many designs are described and can be bought at his [KosmoModularGrid Shop](https://www.kosmodulargrid.com/).
