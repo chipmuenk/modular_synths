@@ -6,14 +6,14 @@ Information, schematics and software for modular synths
 The idea behind this repo is to collect ideas and links concerning electronic music gear using analog modular synths, MIDI modules and maybe FPGAs. And of course to develop own designs.
 
 ## Ideas for workshops
-In 2023, an article was published on amazona.de ["Module vom Bausatz bis zur Eigenkreation"](https://www.amazona.de/workshop-eurorack-diy-module-vom-bausatz-bis-zur-eigenkreation/) (German, translated "Modules: From kits to own creations") that gives a very nice overview on the different levels you can construct your own modules. When organizing workshops, it probably makes sense to focus on entry level courses, provideing some theory and of course practical support.
+In 2023, an article was published on amazona.de ["Module vom Bausatz bis zur Eigenkreation"](https://www.amazona.de/workshop-eurorack-diy-module-vom-bausatz-bis-zur-eigenkreation/) (German, translated "Modules: From kits to own creations") that gives a very nice overview on the different levels you can construct your own modules. When organizing workshops, it probably makes sense to focus on entry ... medium level participants, teach some theory and of course give practical support and fix bugs:
 
-* Construction of a complete module kit, like the [Erica Synths DIY kits](https://www.ericasynths.lv/shop/diy-kits-1/). For intermediate soldering and electronics skills, this should require 1/2 ... 1 day to complete and debug. However, you end up with a single module which could be underwhelming.
-* Compact semimodular synth in the style of [Erica Synth's Bullfrog](https://www.ericasynths.lv/shop/standalone-instruments-1/bullfrog/) or Ray Wilson's Noise Toaster, described in his book "Make: Analog Synthesizers" (see below).
+* Construction of a complete module kit, like the [Erica Synths DIY kits](https://www.ericasynths.lv/shop/diy-kits-1/). For intermediate soldering and electronics skills, this should require 1/2 ... 1 day to complete and debug. However, you end up with a single module which could be underwhelming as a first synth experience.
+* Build a compact semimodular synth in the style of [Erica Synth's Bullfrog](https://www.ericasynths.lv/shop/standalone-instruments-1/bullfrog/) or Ray Wilson's Noise Toaster, described in his book "Make: Analog Synthesizers" (see below).
 * Hybrid Synth, combining VCV-Rack and one or more modules or a semi-modular synth. This avoids the single-module-sadness.
 * Effect boxes / pedals: Some delay based effects could be interesting for guitar players and modular synth afficionados, increasing the number of potential workshop participants. When starting with a cheap PT2366 delay board, results can be obtained really fast (see xxx).
-* Breadboard-style courses starting with a schematic could be interesting for advanced synthesizer developers.
-* Faust + ESP32 audio platform
+* Free-style courses starting with just a schematic could be interesting for advanced synthesizer developers. Breadboards work well for the complexity level of a typical synth module, and from this a PCB could be designed and manufactured.
+* Faust + ESP32 audio platform (see below)
 * Arduino / Teensy + some analog interfacing
 
 
@@ -21,7 +21,7 @@ In 2023, an article was published on amazona.de ["Module vom Bausatz bis zur Eig
 Maker spaces, technical museums, universities, synth shops, synth fairs or conferences, ... ranging from 1/2 day to several days / evenings either in a row or once a week.
 
 ## General
-* [**Ray Wilson aka Music From Outer Space**](https://musicfromouterspace.com/): If you don't know this, it's time to click & read!
+* [**Ray Wilson aka Music From Outer Space**](https://musicfromouterspace.com/): If you don't know this, it's time to dive in!
 * [**Moritz Klein**](https://www.youtube.com/c/MoritzKlein0/videos) certainly creates some of best synth related DIY stuff you can find on Youtube. Together with [Erica Synths](https://www.ericasynths.lv/) he even developed a series of educational DIY synth modules [mki x es.EDU](https://www.ericasynths.lv/news/mki-x-esedu/).
 * [**Look Mum No Computer**](https://www.lookmumnocomputer.com/) and especially his [Youtube Channel](https://www.youtube.com/@LOOKMUMNOCOMPUTER/videos) breathe a true punky DIY spirit!  Many designs are described and can be bought at his [KosmoModularGrid Shop](https://www.kosmodulargrid.com/).
 * **Kevin's** [Simple DIY Electro Music Projects](https://diyelectromusic.wordpress.com) and his [Youtube Channel](https://www.youtube.com/c/SimpleDIYElectroMusicProjects) provide tons of information on music electronics, especially for Arduino and RPi Pico.
