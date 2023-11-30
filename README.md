@@ -11,7 +11,7 @@ In 2023, an article was published on amazona.de ["Module vom Bausatz bis zur Eig
 * Construction of a complete module kit, like the [Erica Synths DIY kits](https://www.ericasynths.lv/shop/diy-kits-1/). For intermediate soldering and electronics skills, this should require 1/2 ... 1 day to complete and debug. However, you end up with a single module which could be underwhelming as a first synth experience.
 * Build a compact semimodular synth in the style of [Erica Synth's Bullfrog](https://www.ericasynths.lv/shop/standalone-instruments-1/bullfrog/) or Ray Wilson's Noise Toaster, described in his book "Make: Analog Synthesizers" (see below). PCB and front panel are available via https://synthcube.com
 * Hybrid Synth, combining VCV-Rack and one or more modules or a semi-modular synth. This avoids the single-module-sadness.
-* Effect boxes / pedals: Some delay based effects could be interesting for guitar players and modular synth afficionados, increasing the number of potential workshop participants. When starting with a cheap PT2366 delay board, results can be obtained really fast (see xxx).
+* Effect boxes / pedals: Some delay based effects could be interesting for guitar players and modular synth afficionados, increasing the number of potential workshop participants. When starting with a cheap PT2366 delay board, results can be obtained really fast, see https://youtu.be/8DflR9uUR6Q.
 * Free-style courses starting with just a schematic could be interesting for advanced synthesizer developers. Breadboards work well for the complexity level of a typical synth module, and from this a PCB could be designed and manufactured.
 * Faust + ESP32 audio platform (see below)
 * Arduino / Teensy + some analog interfacing
