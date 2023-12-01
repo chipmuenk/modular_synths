@@ -47,7 +47,7 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 * [Basic MIDI to CV converter](https://www.hackster.io/janost/diy-good-ol-midi-to-cv-d0e2bf) using an AT Tiny and PWM (C)
 
 ### MIDI routing and decoding
-* **Sparkfun** has a great [introduction}(https://learn.sparkfun.com/tutorials/midi-tutorial/all)
+* **Sparkfun** has a great [introduction](https://learn.sparkfun.com/tutorials/midi-tutorial/all)
 * **Kevin's diyelectromusic** has a great set of basic MIDI project tutorials on a RPi Pico with Micropython to be up and running in no time at all:
   * [MIDI (out), MicroPython and the Raspberry Pi Pico](https://diyelectromusic.wordpress.com/2021/01/23/midi-micropython-and-the-raspberry-pi-pico/), a "Hello World" project to write some MIDI commands.
   * [MIDI In for 3.3V Microcontrollers](https://diyelectromusic.wordpress.com/2021/02/15/midi-in-for-3-3v-microcontrollers/) is counterpart
@@ -63,7 +63,9 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 ## Faust
 > [Faust](https://faustdoc.grame.fr/) (Functional Audio Stream) is a functional programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc. It is used in the academia and, of course, by musicians.
 
-Faust has been implemented on low-cost uC platforms like ESP32 (e.g.  [ESP32-A1S Audio Kit](https://de.aliexpress.com/i/33003284057.html) for ca. 15 €) and Teensy and used as a base for hardware-oriented workshops:
+Faust has been implemented on low-cost uC platforms like ESP32 (e.g.  [ESP32-A1S Ai thinker Audio Kit](https://de.aliexpress.com/i/33003284057.html) for ca. 15 €, described in some detail by [pschatzmann](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/)and Teensy.
+
+It can be used as a base for hardware-oriented workshops:
 * https://ccrma.stanford.edu/workshops/faust-embedded-19/
 * https://faustdoc.grame.fr/tutorials/esp32/
 * https://hal.science/hal-02988312
