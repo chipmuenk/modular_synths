@@ -63,7 +63,7 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 ## Faust
 > [Faust](https://faustdoc.grame.fr/) (Functional Audio Stream) is a functional programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc. It is used in the academia and, of course, by musicians.
 
-Faust has been implemented on low-cost uC platforms like ESP32 (e.g.  [ESP32-A1S Ai thinker Audio Kit](https://de.aliexpress.com/i/33003284057.html) for ca. 15 €, described in some detail by [pschatzmann](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/)and Teensy.
+Faust has been implemented on low-cost uC platforms like ESP32 (e.g.  [Ai-Thinker](https://docs.ai-thinker.com/en/esp32-audio-kit)  [ESP32-A1S Audio-Kit](https://de.aliexpress.com/i/33003284057.html) for ca. 15 €, described in some detail by [pschatzmann](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/)and Teensy.
 
 It can be used as a base for hardware-oriented workshops:
 * https://ccrma.stanford.edu/workshops/faust-embedded-19/
