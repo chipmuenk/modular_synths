@@ -35,6 +35,7 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 ## Mechanics
 
 * 3D-printed front panels on [Printables](https://www.printables.com/de/model/14009-mper-mostly-printed-euro-rack)
+* Attractive enclosures for pedals etc. at [banzaimusic.com](http://www.banzaimusic.com)
 
 ## Analog Hardware
 
