@@ -24,7 +24,9 @@ Besides the ESP32-A1S break-out board, the Audio Kit encompasses:
 ## First project
 As a "Hello World" I tried to implement the Faust ESP32 example on https://faustdoc.grame.fr/tutorials/esp32/. 
 
-I used VSCode as a code editor with the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) (which also installs CMake Tools) and the [Espressif IDF Extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) and 
+I used VSCode as a code editor with the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) (which also installs CMake Tools) and the [Espressif IDF Extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension).
+
+In Visual Studio Code, select menu "View" and "Command Palette" and type [ESP-IDF: Configure ESP-IDF extension]. After that, you can also choose where to save settings in the setup wizard.
 
 As the Faust tutorial describes the older version of the board, some details need to be changed as described by [pschatzmann](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/)
 and in [ESP32 Audio Kit Grundlagen](https://radio-bastler.de/forum/showthread.php?tid=17786) (German). The differences between the AC101 and the ES8388 version are described in more detail in https://www.docdroid.net/L6LX9SK/esp32-a1s-esv23zh-cnen-pdf and in https://github.com/marcel-licence/esp32_midi_sampler/discussions/50 .
