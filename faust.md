@@ -11,12 +11,14 @@ It can be and is used as a base for hardware-oriented workshops:
 
 ## Hardware
 
-The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and wide-spread processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can be bought stand-alone for 
-This module contains an ESP32-WROVER PCB, an ESP32-D0WDQ6-V3 chip with external 4 MB SPI Flash and 8 MB PSRAM. The "A1S" suffix hints at an CODEC that is cconnected via I2S. My version contains an ES8388 chip that replaces the AC101 CODEC in older version.
+The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and widely used processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can/could be bought stand-alone.
+The break-out board contains an ESP32-WROVER module, that is an ESP32-D0WDQ6-V3 chip with external 4 MB SPI Flash and 8 MB PSRAM. The "A1S" suffix relates to the CODEC that is cconnected via I2S. My version contains an ES8388 chip replacing the AC101 CODEC in older versions.
 
+Besides the ESP32-A1S break-out board, the Audio Kit encompasses:
 - CP2102 USB2UART bridge
 - 2 onboard microphones
-- 2 NS4150 Class D audio amplifiers
+- stereo headphone output, stereo line-in input
+- 2 NS4150 Class D audio amplifiers for two speaker outputs (3W, 4 &Omega;)
 - 6 general purpose push buttons
 
 ## First project
