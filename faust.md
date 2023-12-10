@@ -26,9 +26,11 @@ As a "Hello World" I tried to implement the Faust ESP32 example on https://faust
 
 I used VSCode as a code editor with the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) (which also installs CMake Tools) and the [Espressif IDF Extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension).
 
-In Visual Studio Code, select menu "View" and "Command Palette" and type [ESP-IDF: Configure ESP-IDF extension]. I selected ESP-IDF version 4.3.6 and the suggested ESP-IDF container directory `C:\Users\Christian\esp\esp-idf` and ESP-IDF Tools directory (IDF_TOOLS_PATH) `C:\Users\Christian\.espressif`
+In Visual Studio Code, selecting menu "View" and "Command Palette" and typing [ESP-IDF: Configure ESP-IDF extension] installs the ESP-IDF and various prerequisites like idf-git and a suitable python version (which takes some time). I selected ESP-IDF version 4.3.6 and the suggested directories for the ESP-IDF container `C:\Users\Christian\esp\esp-idf` and the ESP-IDF Tools (IDF_TOOLS_PATH) `C:\Users\Christian\.espressif`. I copied the `esp\esp-idf\examples` folder to my working directory.
+
+When installation is completed, there is a new toolbar at the bottom of the VSCode window. 
 
 As the Faust tutorial describes the older version of the board, some details need to be changed as described by [pschatzmann](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/)
 and in [ESP32 Audio Kit Grundlagen](https://radio-bastler.de/forum/showthread.php?tid=17786) (German). The differences between the AC101 and the ES8388 version are described in more detail in https://www.docdroid.net/L6LX9SK/esp32-a1s-esv23zh-cnen-pdf and in https://github.com/marcel-licence/esp32_midi_sampler/discussions/50 .
 
-Although not mentioned in the tutorial, the ES8388 Codec is supported by 
+Although not mentioned in the tutorial, the ES8388 Codec is supported by `faust2esp32`.
