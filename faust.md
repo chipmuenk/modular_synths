@@ -34,3 +34,7 @@ As the Faust tutorial describes the older version of the board, some details nee
 and in [ESP32 Audio Kit Grundlagen](https://radio-bastler.de/forum/showthread.php?tid=17786) (German). The differences between the AC101 and the ES8388 version are described in more detail in https://www.docdroid.net/L6LX9SK/esp32-a1s-esv23zh-cnen-pdf and in https://github.com/marcel-licence/esp32_midi_sampler/discussions/50 .
 
 Although not mentioned in the tutorial, the ES8388 Codec is supported by `faust2esp32`.
+
+### Arduino Design Flow
+
+In the board manager, install esp32
