@@ -26,7 +26,7 @@ As a "Hello World" I tried to implement the Faust ESP32 example on https://faust
 
 I used VSCode as a code editor with the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) (which also installs CMake Tools) and the [Espressif IDF Extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension).
 
-In Visual Studio Code, selecting menu "View" and "Command Palette" and typing [ESP-IDF: Configure ESP-IDF extension] installs the ESP-IDF and various prerequisites like idf-git and a suitable python version (which takes some time). I selected ESP-IDF version 4.3.6 and the suggested directories for the ESP-IDF container `C:\Users\Christian\esp\esp-idf` and the ESP-IDF Tools (IDF_TOOLS_PATH) `C:\Users\Christian\.espressif`. I copied the `esp\esp-idf\examples` folder to my working directory.
+In Visual Studio Code, selecting menu "View" and "Command Palette" and typing [ESP-IDF: Configure ESP-IDF extension] installs the ESP-IDF and various prerequisites like idf-git and a suitable python version (which takes some time). I selected ESP-IDF version 4.3.6 and the suggested directories for the ESP-IDF container `C:\Users\Christian\esp\esp-idf` and the ESP-IDF Tools (IDF_TOOLS_PATH) `C:\Users\Christian\.espressif`. I copied the `esp\esp-idf\examples` folder to my working directory. This is also described in https://www.heise.de/ratgeber/Visual-Studio-Code-Installation-und-Konfiguration-fuer-ESP-IDF-6656091.html
 
 When installation is completed, there is a new toolbar at the bottom of the VSCode window. 
 
