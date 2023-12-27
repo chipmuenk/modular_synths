@@ -33,6 +33,7 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 * [**Notes and Volts**](https://www.notesandvolts.com/) and his [Youtube Channel](https://www.youtube.com/c/NotesAndVolts) have lots of interesting audio projects, mainly built around uCs like the Teensy.
 * [**Rene Schmitz**](https://www.schmitzbits.de/) Schmitzbits is a treasure trove for analog synth related circuits.
 * [**Raymond Schouten**](www.rs-elc.nl) has some very reduced but interesting projects for mixed analog / Arduino synthesizers.
+* [**Modwiggler**](https://www.modwiggler.com/) - THE forum for all things related to modular synths.
 * Last but not least: The Subreddit [**/r/synthdiy**](https://www.reddit.com/r/synthdiy)
 
 ## Mechanics
