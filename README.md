@@ -1,5 +1,5 @@
 # modular_synths
-Information, schematics and software for modular synths
+Information, schematics and software
 
 <img src="img/kabel_vignette_r.JPG" alt="cables" width="40%"/>
 
