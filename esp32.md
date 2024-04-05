@@ -8,18 +8,29 @@ Phil Schatzmann has developed the [Arduino Audiokit](https://github.com/pschatzm
 
 This library has been archived and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) for new projects. 
 
-The libraries can be downloaded as zip archives via Sketch -> Include Library -> Add .ZIP Library or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
+The libraries can be downloaded as zip archives via `Sketch -> Include Library -> Add .ZIP Library` or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
 
 Libraries are installed in three different locations: In the Sketchbook folder (File -> Preferences -> Sketchbook location), in the user folder (e.g. Documents\Arduino\libraries under Windows) or in the installation folder (requiring elevated rights).
 
+### Audiokit Library
+
 In the freshly installed audiokit library, board and codec need to be selected in
 
-libraries/audiokit/src/AudioKitSettings.h
+    libraries/audiokit/src/AudioKitSettings.h
+
+requiring for the ESP32 Audio Kit v2.2 
+
+    #define AUDIOKIT_BOARD 5
+
+Additionally, the following setting should be present to enable the headphone socket
+
+    #define AI_THINKER_ES8388_VOLUME_HACK 1
 
 After the installation (and maybe a restart), you should see new examples under
 
 File -> Examples -> audiokit
 
+The example 'output' generates a 1000 Hz sinusoidal tone, the example 'input' reads L and R channel of audio and plots them on the serial plotter.
 
 
 ## ESP32 Audio Kit
