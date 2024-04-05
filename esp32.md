@@ -1,5 +1,10 @@
 # Synth Projects on ESP32
 
+## Arduino IDE
+Due to good support and plenty of examples and tutorials, I started with the Arduino IDE workflow. You need to install the Arduino IDE and the ESP32 Board Support Package (described e.g. by [Random Nerd Tutorials](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)).
+
+Hardware abstraction layer for various ESP32 boards: https://github.com/pschatzmann/arduino-audiokit
+
 ## ESP32 Audio Kit
 
 The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and widely used processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can/could be bought stand-alone.
@@ -11,6 +16,9 @@ Besides the ESP32-A1S break-out board, the Audio Kit encompasses:
 - stereo headphone output, stereo line-in input
 - 2 NS4150 Class D audio amplifiers for two speaker outputs (3W, 4 &Omega;)
 - 6 general purpose push buttons
+
+In the Arduino IDE, the board can be selected as Tools -> Board Manager -> esp32 -> ESP32 Dev Module
+
 ## Hackerbox Audio DSP
 > Welcome to HackerBox 0079. Let's explore audio signal generation, inter-IC sound (I2S) audio streams, and digital signal processing (DSP). Configure an ESP32-A1S Audio Development Kit featuring a dual-core ESP32 microcontroller coupled to an integrated audio CODEC and a variety of audio interface and peripheral components. Program several audio processing examples leveraging an advanced stream-based hardware abstraction layer for the ESP32-A1S. Examples include wave generators, simple synthesizers, MP3 decoders for online stream sources as well as MP3 files on SD flash cards. Use GNU Octave (or MATLAB) to design and test digital FIR filters that can be implemented on the ESP32 Audio Development Kit. Hack multi-channel audio connectors:
 
