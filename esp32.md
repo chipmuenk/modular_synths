@@ -3,7 +3,16 @@
 ## Arduino IDE
 Due to good support and plenty of examples and tutorials, I started with the Arduino IDE workflow. You need to install the Arduino IDE and the ESP32 Board Support Package (described e.g. by [Random Nerd Tutorials](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)).
 
-Hardware abstraction layer for various ESP32 boards: https://github.com/pschatzmann/arduino-audiokit
+Phil Schatzmann has developed the [Arduino Audiokit](https://github.com/pschatzmann/arduino-audiokit) as a replacement for the Espressiv ADF which cannot be used with the Arduino IDE. 
+> There are different ESP32 Audio boards available that can be programmed with the Espressif ADF Framework. The ADF Framework contains an abstraction layer to support different codec audio chips (ES8388, ES8311, AC101...) which need to be configured usually via I2C.
+
+This library has been archived and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) for new projects. 
+
+The libraries can be downloaded as zip archives and installed manually (as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) via Sketch -> Include Library -> Add .ZIP Library
+
+Afterwards, you should see new examples under
+
+File -> Examples -> audiokit
 
 ## ESP32 Audio Kit
 
