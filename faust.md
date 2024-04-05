@@ -41,12 +41,15 @@ Although not mentioned in the tutorial, the ES8388 Codec is supported by `faust2
 In the board manager, install esp32
 
 # Synth Projects on ESP32
+## Hackerbox Audio DSP
+
+https://www.instructables.com/HackerBox-0079-Audio-DSP/
 
 ## Marcel License
 Marcel License's repo at https://github.com/marcel-licence has a lot of great music projects built around ESP-32:
 
 ### Little startup guide for ESP32 Arduino DIY MIDI Synthesizer Projects
-
+A great [Youtube](https://youtu.be/ZNxGCB-d68g) video to get started with Arduino IDE and git and Marcel's audio projects.
 
 ### ESP32 based DIY polyphonic MIDI synthesizer module
 The project is published on [Github](https://github.com/marcel-licence/esp32_basic_synth) and demonstrated on [Youtube](https://youtu.be/5XVK5MOKmZw). It has been tested on the ESP32 Audio Kit v2.2 (see above) and on the widely used ESP32 DEVKIT - DOIT. 
@@ -58,7 +61,5 @@ The project also uses the following software by the same author:
 For more information refer to the MIDI related project: https://github.com/marcel-licence/esp32_usb_midi Using USB can be seen here: https://youtu.be/Mt3rT-SVZww
 
 
-## Hackerbox Audio DSP
 
-https://www.instructables.com/HackerBox-0079-Audio-DSP/
 
