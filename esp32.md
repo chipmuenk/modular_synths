@@ -8,11 +8,19 @@ Phil Schatzmann has developed the [Arduino Audiokit](https://github.com/pschatzm
 
 This library has been archived and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) for new projects. 
 
-The libraries can be downloaded as zip archives and installed manually (as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) via Sketch -> Include Library -> Add .ZIP Library
+The libraries can be downloaded as zip archives via Sketch -> Include Library -> Add .ZIP Library or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
 
-Afterwards, you should see new examples under
+Libraries are installed in three different locations: In the Sketchbook folder (File -> Preferences -> Sketchbook location), in the user folder (e.g. Documents\Arduino\libraries under Windows) or in the installation folder (requiring elevated rights).
+
+In the freshly installed audiokit library, board and codec need to be selected in
+
+libraries/audiokit/src/AudioKitSettings.h
+
+After the installation (and maybe a restart), you should see new examples under
 
 File -> Examples -> audiokit
+
+
 
 ## ESP32 Audio Kit
 
