@@ -42,12 +42,23 @@ In the board manager, install esp32
 
 # Synth Projects on ESP32
 
-## ESP32 based DIY polyphonic MIDI synthesizer module
+## Marcel License
+Marcel License's repo at https://github.com/marcel-licence has a lot of great music projects built around ESP-32:
+
+### Little startup guide for ESP32 Arduino DIY MIDI Synthesizer Projects
+
+
+### ESP32 based DIY polyphonic MIDI synthesizer module
 The project is published on [Github](https://github.com/marcel-licence/esp32_basic_synth) and demonstrated on [Youtube](https://youtu.be/5XVK5MOKmZw). It has been tested on the ESP32 Audio Kit v2.2 (see above) and on the widely used ESP32 DEVKIT - DOIT. 
 
 The project also uses the following software by the same author:
 
-## USB MIDI for the ESP32
+### USB MIDI for the ESP32
 
 For more information refer to the MIDI related project: https://github.com/marcel-licence/esp32_usb_midi Using USB can be seen here: https://youtu.be/Mt3rT-SVZww
+
+
+## Hackerbox Audio DSP
+
+https://www.instructables.com/HackerBox-0079-Audio-DSP/
 
