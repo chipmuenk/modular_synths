@@ -49,6 +49,18 @@ File -> Examples -> audiokit
 
 The example 'output' generates a 1000 Hz sinusoidal tone, the example 'input' reads L and R channel of audio and plots them on the serial plotter.
 
+The example `input` monitors the line input on the serial plotter. In order to use the onboard microphones instead, change
+
+    cfg.adc_input = AUDIO_HAL_ADC_INPUT_LINE1;
+
+to
+
+    cfg.adc_input = AUDIO_HAL_ADC_INPUT_LINE2;
+
+(This made no difference for me, the signal was just a few LSBs of noise in both cases.)
+
+and open `Tools -> Serial Plotter` and set the baud rate to 115200.
+
 ## ESP32 Audio Kit
 
 The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and widely used processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can/could be bought stand-alone.
