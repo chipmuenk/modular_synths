@@ -4,9 +4,9 @@
 
 Due to good support and plenty of examples and tutorials, it is a good idea to use the Arduino Integrated Design Environment for people with little experience in microcontroller developments. There are two common misconceptions among beginners:
 
-1. "The Arduino IDE can only be used for Arduino Hardware like the classic Arduino Uno, the Arduino Nano etc." The Arduino people themselves and companies like Espressif (for a.o. their ESP-32 products) offer support for various uC families and lots of boards. Sometimes this requires installing additional libraries which is rather easy in Arduino IDE.
+1. *The Arduino IDE can only be used for Arduino Hardware like the classic Arduino Uno, the Arduino Nano etc.* The Arduino people themselves and companies like Espressif (for a.o. their ESP-32 products) offer support for various uC families and lots of boards. Sometimes this requires installing additional libraries which is rather easy in Arduino IDE.
 
-2. "Arduino is a special programming language." No, it's C++. However, the IDE implements some shortcuts to make life easier for beginners:
+2. *Arduino is a special programming language.* No, it's C++. However, the IDE implements some shortcuts to make life easier for beginners:
 
     - automatically insert `include <some_library.h>`for detected libraries
     - automatically insert forward declaration for functions
