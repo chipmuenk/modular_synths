@@ -18,24 +18,34 @@ Even for experienced programmers it can make sense to install the Arduino IDE du
 
 If you enable "verbose output" under `File -> Preferences` you can watch some of the Arduino magic going on.
 
- You need to install the Arduino IDE and the ESP32 Board Support Package (described e.g. by [Random Nerd Tutorials](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)).
+You need to install the Arduino IDE and the ESP32 Board Support Package (described e.g. by [Random Nerd Tutorials (RNT)](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)). RNT has great tutorials and material for Arduino and ESP-32, highly recommended!
+### Libraries
+Libraries are installed in three different locations: In the Sketchbook folder (`File -> Preferences -> Sketchbook location`), in the user folder (e.g. `Documents\Arduino\libraries` under Windows) or in the installation folder for system libraries (requiring elevated rights).
 
-Phil Schatzmann has developed the [Arduino Audiokit](https://github.com/pschatzmann/arduino-audiokit) as a replacement for the Espressiv ADF which cannot be used with the Arduino IDE. 
-> There are different ESP32 Audio boards available that can be programmed with the Espressif ADF Framework. The ADF Framework contains an abstraction layer to support different codec audio chips (ES8388, ES8311, AC101...) which need to be configured usually via I2C.
+The easiest way to install new libraries directly from the internet is via the Library Manager in the left sidebar. Downloaded zipped libraries can be installed via `Sketch -> Include Library -> Add .ZIP Library` or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
 
-This library has been archived and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) for new projects. 
+## Hackerbox Audio DSP
 
-The libraries can be downloaded as zip archives via `Sketch -> Include Library -> Add .ZIP Library` or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
+> Welcome to HackerBox 0079. Let's explore audio signal generation, inter-IC sound (I2S) audio streams, and digital signal processing (DSP). Configure an ESP32-A1S Audio Development Kit featuring a dual-core ESP32 microcontroller coupled to an integrated audio CODEC and a variety of audio interface and peripheral components. Program several audio processing examples leveraging an advanced stream-based hardware abstraction layer for the ESP32-A1S. Examples include wave generators, simple synthesizers, MP3 decoders for online stream sources as well as MP3 files on SD flash cards. Use GNU Octave (or MATLAB) to design and test digital FIR filters that can be implemented on the ESP32 Audio Development Kit. Hack multi-channel audio connectors:
 
-Libraries are installed in three different locations: In the Sketchbook folder (File -> Preferences -> Sketchbook location), in the user folder (e.g. Documents\Arduino\libraries under Windows) or in the installation folder (requiring elevated rights).
+https://www.instructables.com/HackerBox-0079-Audio-DSP/ is a really nice first introduction into DSP on the ESP32, building upon the libraries of Phil Schatzmann (see below).
+
+In general, I'm really impressed by the quality of audio and DSP libraries, repos and videos of Phil Schatzmann and Marcel License for the ESP32:
+
+## Phil Schatzmann
 
 ### Audiokit Library
 
+Phil has written the [Arduino Audiokit](https://github.com/pschatzmann/arduino-audiokit) as a replacement for the [Espressif Audio Development Framework (ADF)](https://github.com/espressif/esp-adf) Drivers which cannot be used with the Arduino IDE:
+
+> There are different ESP32 Audio boards available that can be programmed with the Espressif ADF Framework. The ADF Framework contains an abstraction layer to support different codec audio chips (ES8388, ES8311, AC101...) which need to be configured usually via I2C.
+
+This library has been archived and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) (see below) for new projects. However, it is still widely used. It can be downloaded as a zip archive and simply added to the IDE.
 In the freshly installed audiokit library, board and codec need to be selected in
 
     libraries/audiokit/src/AudioKitSettings.h
 
-requiring for the ESP32 Audio Kit v2.2 
+requiring for the ESP32 Audio Kit v2.2
 
     #define AUDIOKIT_BOARD 5
 
@@ -45,11 +55,11 @@ Additionally, the following setting should be present to enable the headphone so
 
 After the installation (and maybe a restart), you should see new examples under
 
-File -> Examples -> audiokit
+    File -> Examples -> audiokit
 
 The example 'output' generates a 1000 Hz sinusoidal tone, the example 'input' reads L and R channel of audio and plots them on the serial plotter.
 
-The example `input` monitors the line input on the serial plotter. In order to use the onboard microphones instead, change
+The example `input` plots L and R channel of the audio input on the serial plotter. In order to use the onboard microphones instead, change
 
     cfg.adc_input = AUDIO_HAL_ADC_INPUT_LINE1;
 
@@ -57,36 +67,22 @@ to
 
     cfg.adc_input = AUDIO_HAL_ADC_INPUT_LINE2;
 
-(This made no difference for me, the signal was just a few LSBs of noise in both cases.)
-
 and open `Tools -> Serial Plotter` and set the baud rate to 115200.
+
+However, this made no difference for me, the signal was just a few LSBs of noise in both cases.
+
+### Arduino Audio Driver
+
+the goal of the [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library is to provide an easy API to configure different audio codec chips via I2C to be able to stream audio via I2S. Supported codecs are a.o. AC101, ES8388, ES8311,CS43l22 and ES7243.
+
+The library can be downloaded and installed as a ZIP file, it brings some examples for easy testing. Some of the examples require Arduino Audio Tools.
 
 ### Arduino Audio Tools
 
-This library mainly provides different audio sources and sinks, including sound generators and encoders and decoders.
+This library mainly provides different audio sources and sinks, including sound generators, encoders and decoders.
 
-https://github.com/pschatzmann/arduino-audio-tools can also be installed as a zip-File
+https://github.com/pschatzmann/arduino-audio-tools can be downloaded and installed as a zip-File
 
-## ESP32 Audio Kit
-
-The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and widely used processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can/could be bought stand-alone.
-The break-out board contains an ESP32-WROVER module, that is an ESP32-D0WDQ6-V3 chip with external 4 MB SPI Flash and 8 MB PSRAM. The "A1S" suffix relates to the CODEC that is cconnected via I2S. My version contains an ES8388 chip replacing the AC101 CODEC in older versions.
-
-Besides the ESP32-A1S break-out board, the Audio Kit encompasses:
-
-- CP2102 USB2UART bridge
-- 2 onboard microphones
-- stereo headphone output, stereo line-in input
-- 2 NS4150 Class D audio amplifiers for two speaker outputs (3W, 4 &Omega;)
-- 6 general purpose push buttons
-
-In the Arduino IDE, the board can be selected as Tools -> Board Manager -> esp32 -> ESP32 Dev Module
-
-## Hackerbox Audio DSP
-
-> Welcome to HackerBox 0079. Let's explore audio signal generation, inter-IC sound (I2S) audio streams, and digital signal processing (DSP). Configure an ESP32-A1S Audio Development Kit featuring a dual-core ESP32 microcontroller coupled to an integrated audio CODEC and a variety of audio interface and peripheral components. Program several audio processing examples leveraging an advanced stream-based hardware abstraction layer for the ESP32-A1S. Examples include wave generators, simple synthesizers, MP3 decoders for online stream sources as well as MP3 files on SD flash cards. Use GNU Octave (or MATLAB) to design and test digital FIR filters that can be implemented on the ESP32 Audio Development Kit. Hack multi-channel audio connectors:
-
-https://www.instructables.com/HackerBox-0079-Audio-DSP/
 
 ## Marcel License
 
@@ -106,3 +102,19 @@ The project also uses the following software by the same author:
 
 For more information refer to the MIDI related project: https://github.com/marcel-licence/esp32_usb_midi Using USB can be seen here: https://youtu.be/Mt3rT-SVZww
 
+## Hardware
+
+### ESP32 Audio Kit
+
+The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and widely used processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can/could be bought stand-alone.
+The break-out board contains an ESP32-WROVER module, that is an ESP32-D0WDQ6-V3 chip with external 4 MB SPI Flash and 8 MB PSRAM. The "A1S" suffix relates to the CODEC that is cconnected via I2S. My version contains an ES8388 chip replacing the AC101 CODEC in older versions.
+
+Besides the ESP32-A1S break-out board, the Audio Kit board encompasses:
+
+- CP2102 USB2UART bridge
+- 2 onboard microphones
+- stereo headphone output, stereo line-in input
+- 2 NS4150 Class D audio amplifiers for two speaker outputs (3W, 4 &Omega;)
+- 6 general purpose push buttons
+
+In the Arduino IDE, the board can be selected as Tools -> Board Manager -> esp32 -> ESP32 Dev Module
