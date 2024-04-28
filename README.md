@@ -4,7 +4,7 @@ Information, schematics and software
 
 <img src="img/kabel_vignette_r.JPG" alt="cables" width="40%"/>
 
-The idea behind this repo is to collect ideas and links concerning electronic music gear using analog modular synths, MIDI modules and maybe FPGAs. And of course to develop own designs.
+This repo is my collection ideas and links concerning electronic music gear with focus on analog modular synths, microcontroller and MIDI modules and maybe FPGAs. And of course to develop own designs.
 
 ## Ideas for workshops
 
@@ -17,7 +17,7 @@ Please contact me if you are interested in collaborations, workshops or sharing 
 * **[VCV-Rack](https://vcvrack.com/)**, a software emulation of modular synthesis. The possibilities and limitations of modular synth sound design can be explained and explored easily and for free as a first step. VCV-Rack can be used as a plug-in for DAWs, enabling interfacing audio and control signals to hardware modules and synths in a **hybrid synth**. This can help to avoid the initial single-module-sadness. Unfortunately, this is only possible with the pro-version.
 
   Alternatively, **[Disthro Cardinal](https://github.com/DISTRHO/Cardinal)** packages VCV-Rack together with the most popular modules and works as a plugin in AudioUnit/CLAP/LV2/VST2/VST3 formats and as a standalone app for FreeBSD, Linux, macOS, Windows and the Web.
-* **PT2366 delay boards** are really cheap (1 ... 2 € at AliExpress) and can be used to build delay based effects for guitar players and modular synth afficionados, increasing the number of potential workshop participants. Results can be obtained really fast, see e.g. https://youtu.be/4sou9qvbDls or https://youtu.be/8DflR9uUR6Q .
+* **PT2399 delay boards** are really cheap (1 ... 2 € at AliExpress) and can be used to build delay based effects for guitar players and modular synth afficionados, increasing the number of potential workshop participants. Examples and documentation see linked [here](pt2399.md).
 * **Free-style courses** starting with just a schematic for advanced synthesizer developers / electronic tinkerers. Breadboards work well for the complexity level of a typical synth module, and from this a stripline board or a PCB can be designed and manufactured.
 * **Faust + ESP32** audio platform (see below), focussing on algorithms and a software-centric approach to music electronics, suitable for stomp boxes and modular systems alike.
 * Arduino / Teensy + some analog interfacing
@@ -40,11 +40,12 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 * [**Modwiggler**](https://www.modwiggler.com/) - THE forum for all things related to modular synths.
 * Last but not least: The Subreddit [**/r/synthdiy**](https://www.reddit.com/r/synthdiy)
 
-## Mechanics
+## Mechanics and components
 
 * 3D-printed front panels on [Printables](https://www.printables.com/de/model/14009-mper-mostly-printed-euro-rack)
 * Attractive enclosures for pedals etc. at [banzaimusic.com](http://www.banzaimusic.com)
 * A general discussion on PCB and alumininum front panels: https://modwiggler.com/forum/viewtopic.php?t=278898 
+* Compact (outer diameter 30 mm) 24 RBG LED ring from [Duppa Components](https://www.duppa.net/shop/rgb-led-ring-small) for rotary encoders
 
 ## Analog Hardware
 

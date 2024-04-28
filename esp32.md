@@ -1,3 +1,7 @@
+[Back to main](./README.md)
+
+***
+
 # Synth Projects on ESP32
 
 ## Arduino IDE
@@ -118,3 +122,5 @@ Besides the ESP32-A1S break-out board, the Audio Kit board encompasses:
 - 6 general purpose push buttons
 
 In the Arduino IDE, the board can be selected as Tools -> Board Manager -> esp32 -> ESP32 Dev Module
+
+[Back to main](./README.md)
