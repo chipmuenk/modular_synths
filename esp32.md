@@ -1,6 +1,6 @@
 [Back to main](./README.md)
 
-***
+<hr>
 
 # Synth Projects on ESP32
 
@@ -40,43 +40,6 @@ In general, I'm really impressed by the quality of audio and DSP libraries, repo
 
 https://www.pschatzmann.ch/home/2020/05/22/synthesizer-for-the-esp32/
 
-### Audiokit Library
-
-Phil has written the [Arduino Audiokit](https://github.com/pschatzmann/arduino-audiokit) as a replacement for the [Espressif Audio Development Framework (ADF)](https://github.com/espressif/esp-adf) Drivers which cannot be used with the Arduino IDE:
-
-> There are different ESP32 Audio boards available that can be programmed with the Espressif ADF Framework. The ADF Framework contains an abstraction layer to support different codec audio chips (ES8388, ES8311, AC101...) which need to be configured usually via I2C.
-
-This library has been archived and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) (see below) for new projects. However, it is still widely used. It can be downloaded as a zip archive and simply added to the IDE.
-In the freshly installed audiokit library, board and codec need to be selected in
-
-    libraries/audiokit/src/AudioKitSettings.h
-
-requiring for the ESP32 Audio Kit v2.2
-
-    #define AUDIOKIT_BOARD 5
-
-Additionally, the following setting should be present to enable the headphone socket
-
-    #define AI_THINKER_ES8388_VOLUME_HACK 1
-
-After the installation (and maybe a restart), you should see new examples under
-
-    File -> Examples -> audiokit
-
-The example 'output' generates a 1000 Hz sinusoidal tone, the example 'input' reads L and R channel of audio and plots them on the serial plotter.
-
-The example `input` plots L and R channel of the audio input on the serial plotter. In order to use the onboard microphones instead, change
-
-    cfg.adc_input = AUDIO_HAL_ADC_INPUT_LINE1;
-
-to
-
-    cfg.adc_input = AUDIO_HAL_ADC_INPUT_LINE2;
-
-and open `Tools -> Serial Plotter` and set the baud rate to 115200.
-
-However, this made no difference for me, the signal was just a few LSBs of noise in both cases.
-
 ### Arduino Audio Driver
 
 the goal of the [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library is to provide an easy API to configure different audio codec chips via I2C to be able to stream audio via I2S. Supported codecs are a.o. AC101, ES8388, ES8311,CS43l22 and ES7243.
@@ -85,19 +48,26 @@ The library can be downloaded and installed as a ZIP file, it brings some exampl
 
 ### Arduino Audio Tools
 
-This [library](https://github.com/pschatzmann/arduino-audio-tools) mainly provides different audio sources and sinks, including sound generators, encoders and decoders. These sources and sinks are based on the concept of "streams", like:
+This [library](https://github.com/pschatzmann/arduino-audio-tools) mainly provides different audio sources and sinks, including sound generators, encoders and decoders, real-time FFT and logging. Sources and sinks are different kind of "streams":
 
-- **I2S** (Inter-IC Sound) is a synchronous serial standard for transmitting audio signals that is widely used by many ADCs and DACs, digital microphones or audio DSPs. 
-- **A2DP** (Advanced Audio Distribution Profile) is a Bluetooth profile and technique for transmitting stereo audio streams. This profile is supported by most platforms and operating systems, different codecs can be specified.
+- **I2S** (Inter-IC Sound), a synchronous serial standard for transmitting audio signals that is widely used by many ADCs and DACs, digital microphones or audio DSPs. 
+- **A2DP** (Advanced Audio Distribution Profile), a Bluetooth profile and technique for transmitting stereo audio streams. This profile is supported by most platforms and operating systems, different codecs can be specified.
 - **RTSP** (Real-Time Streaming Protocol) for *controlling* the streaming of audio-visual data via IP-based networks. The actual data is usually transmitted using the Real-Time Transport Protocol (RTP).
 
 The library brings plenty of examples organized in subfolders:
 
-- *examples-audiokit* is dedicated to the deprecated Audiokit Library
-- *examples-basic-api*  xx
-- *examples-dsp* for various DSP audio synthesis libraries like [Maximilian](https://github.com/micknoise/Maximilian), [Faust](../faust.md), Mozzi
-- *examples-player*: streaming from SD-card, URLs etc. to I2S, A2DP, FFT or analog
+- *examples-audiokit* for the deprecated audiokit library
+- *examples-basic-api* with some basic stuff to demonstrate the API
+- *examples-communication* for streaming with various network protocols (A2DP, HTTP, SPI, ...)
+- *examples-dsp* for various DSP audio synthesis libraries like [Maximilian](https://github.com/micknoise/Maximilian), [Faust](./faust.md), [Mozzi](https://sensorium.github.io/Mozzi/), [PureData](https://puredata.info/) and [SythesisToolKit](https://ccrma.stanford.edu/software/stk/) (STK) from CCRMA Stanford.
+- *examples-player* demonstrates the audioplayer streaming from SD-card, URLs etc. to I2S, A2DP, FFT or analog
+- *examples-stream* connects streams, e.g. for format conversion
+- *examples-tts* provides text-to-speech using different platforms
+- *examples-vs1053* shows how to interface to the [VS1053 SOC](https://cdn-shop.adafruit.com/datasheets/vs1053.pdf), a chip supporting mp3, FLAC, OGG and other audio coding formats.
 
+### Arduino Audiokit Library
+
+This [library](./esp32_audiokit.md) is deprecated and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) (see above) for new projects. However, it is still widely used. 
 
 ## Marcel License
 
@@ -115,7 +85,7 @@ The project also uses the following software by the same author:
 
 ### USB MIDI for the ESP32
 
-For more information refer to the MIDI related project: https://github.com/marcel-licence/esp32_usb_midi Using USB can be seen here: https://youtu.be/Mt3rT-SVZww
+For more information refer to the MIDI related project: [esp32_usb_midi](https://github.com/marcel-licence/esp32_usb_midi). Using USB MIDI can be seen in the video [Mini USB host shield with ESP32 as MIDI interface](https://youtu.be/Mt3rT-SVZww).
 
 ## Hardware
 
@@ -133,5 +103,7 @@ Besides the ESP32-A1S break-out board, the Audio Kit board encompasses:
 - 6 general purpose push buttons
 
 In the Arduino IDE, the board can be selected as Tools -> Board Manager -> esp32 -> ESP32 Dev Module
+
+<hr>
 
 [Back to main](./README.md)
