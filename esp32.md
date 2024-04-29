@@ -38,6 +38,8 @@ In general, I'm really impressed by the quality of audio and DSP libraries, repo
 
 ## Phil Schatzmann
 
+https://www.pschatzmann.ch/home/2020/05/22/synthesizer-for-the-esp32/
+
 ### Audiokit Library
 
 Phil has written the [Arduino Audiokit](https://github.com/pschatzmann/arduino-audiokit) as a replacement for the [Espressif Audio Development Framework (ADF)](https://github.com/espressif/esp-adf) Drivers which cannot be used with the Arduino IDE:
@@ -83,9 +85,18 @@ The library can be downloaded and installed as a ZIP file, it brings some exampl
 
 ### Arduino Audio Tools
 
-This library mainly provides different audio sources and sinks, including sound generators, encoders and decoders.
+This [library](https://github.com/pschatzmann/arduino-audio-tools) mainly provides different audio sources and sinks, including sound generators, encoders and decoders. These sources and sinks are based on the concept of "streams", like:
 
-https://github.com/pschatzmann/arduino-audio-tools can be downloaded and installed as a zip-File
+- **I2S** (Inter-IC Sound) is a synchronous serial standard for transmitting audio signals that is widely used by many ADCs and DACs, digital microphones or audio DSPs. 
+- **A2DP** (Advanced Audio Distribution Profile) is a Bluetooth profile and technique for transmitting stereo audio streams. This profile is supported by most platforms and operating systems, different codecs can be specified.
+- **RTSP** (Real-Time Streaming Protocol) for *controlling* the streaming of audio-visual data via IP-based networks. The actual data is usually transmitted using the Real-Time Transport Protocol (RTP).
+
+The library brings plenty of examples organized in subfolders:
+
+- *examples-audiokit* is dedicated to the deprecated Audiokit Library
+- *examples-basic-api*  xx
+- *examples-dsp* for various DSP audio synthesis libraries like [Maximilian](https://github.com/micknoise/Maximilian), [Faust](../faust.md), Mozzi
+- *examples-player*: streaming from SD-card, URLs etc. to I2S, A2DP, FFT or analog
 
 
 ## Marcel License
