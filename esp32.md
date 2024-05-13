@@ -34,21 +34,19 @@ The easiest way to install new libraries directly from the internet is via the L
 
 https://www.instructables.com/HackerBox-0079-Audio-DSP/ is a really nice first introduction into DSP on the ESP32, building upon the libraries of Phil Schatzmann (see below).
 
-In general, I'm really impressed by the quality of audio and DSP libraries, repos and videos of Phil Schatzmann and Marcel License for the ESP32:
-
 ## Phil Schatzmann
 
-https://www.pschatzmann.ch/home/2020/05/22/synthesizer-for-the-esp32/
+Phil has created the two libraries arduino-audio-driver and arduino-audio-tools that make it so much easier to do audio and DSP programming for ESP32 (and other microcontrollers) with the Arduino IDE. His videos and other repos are also worth checking out.
 
 ### Arduino Audio Driver
 
-the goal of the [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library is to provide an easy API to configure different audio codec chips via I2C to be able to stream audio via I2S. Supported codecs are a.o. AC101, ES8388, ES8311,CS43l22 and ES7243.
+The [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library provides an easy API to configure different audio codec chips via I2C for streaming audio via I2S. Supported codecs are a.o. AC101, ES8388, ES8311, CS43L22 and ES7243.
 
 The library can be downloaded and installed as a ZIP file, it brings some examples for easy testing. Some of the examples require Arduino Audio Tools.
 
 ### Arduino Audio Tools
 
-This [library](https://github.com/pschatzmann/arduino-audio-tools) mainly provides different audio sources and sinks, including sound generators, encoders and decoders, real-time FFT and logging. Sources and sinks are different kind of "streams":
+The [arduino-audio-tools](https://github.com/pschatzmann/arduino-audio-tools) library mainly provides different audio sources and sinks (i.e. streams), including sound generators, encoders and decoders, real-time FFT and logging:
 
 - **I2S** (Inter-IC Sound), a synchronous serial standard for transmitting audio signals that is widely used by many ADCs and DACs, digital microphones or audio DSPs. 
 - **A2DP** (Advanced Audio Distribution Profile), a Bluetooth profile and technique for transmitting stereo audio streams. This profile is supported by most platforms and operating systems, different codecs can be specified.
@@ -67,7 +65,8 @@ The library brings plenty of examples organized in subfolders:
 
 ### Arduino Audiokit Library
 
-This [library](./esp32_audiokit.md) is deprecated and should be replaced by [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) (see above) for new projects. However, it is still widely used. 
+This [library](./esp32_audiokit.md) is deprecated, [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) (see above) should be used instead for new projects.
+
 
 ## Marcel License
 
@@ -86,6 +85,12 @@ The project also uses the following software by the same author:
 ### USB MIDI for the ESP32
 
 For more information refer to the MIDI related project: [esp32_usb_midi](https://github.com/marcel-licence/esp32_usb_midi). Using USB MIDI can be seen in the video [Mini USB host shield with ESP32 as MIDI interface](https://youtu.be/Mt3rT-SVZww).
+
+## NA5Y
+
+- Using the ESP32 A1S with the Expressif ADF
+- [ESP32 A1S with Arduino Audio Tools](https://youtu.be/oqtkR2FRKYI): Various examples for streaming audio (generated, I2S, HTTP, Bluetooth) with the ESP32 A1S using the Arduino IDE.
+- [Repo](https://github.com/thaaraak/es8388) with code for controlling the ES8388 codec
 
 ## Hardware
 

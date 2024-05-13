@@ -18,6 +18,7 @@ Please contact me if you are interested in collaborations, workshops or sharing 
 
   Alternatively, **[Disthro Cardinal](https://github.com/DISTRHO/Cardinal)** packages VCV-Rack together with the most popular modules and works as a plugin in AudioUnit/CLAP/LV2/VST2/VST3 formats and as a standalone app for FreeBSD, Linux, macOS, Windows and the Web.
 * **PT2399 delay boards** are really cheap (1 ... 2 € at AliExpress) and can be used to build delay based effects for guitar players and modular synth afficionados, increasing the number of potential workshop participants. Examples and documentation see linked [here](pt2399.md).
+* **Retro / LoFi** synths can be constructed with low effort for those who love the crispy sounds from the 8 bit era.
 * **Free-style courses** starting with just a schematic for advanced synthesizer developers / electronic tinkerers. Breadboards work well for the complexity level of a typical synth module, and from this a stripline board or a PCB can be designed and manufactured.
 * **Faust + ESP32** audio platform (see below), focussing on algorithms and a software-centric approach to music electronics, suitable for stomp boxes and modular systems alike.
 * Arduino / Teensy + some analog interfacing
@@ -49,6 +50,13 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 
 ## Analog Hardware
 
+## LoFi
+
+The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 80s is still available at prices round 3 ... 15 (also as a board in the same price range).
+
+* NA5Y: ["Space Invader Sounds Part 2 - The SN76477"](https://youtu.be/GSdYijiBqqs).
+* Steven Bolin, [SN76477 Synth Demo](https://youtu.be/atH1MvXDYYE)
+* [Thomas Henry SN Voice SN76477 Eurorack Module](https://youtu.be/KqnBLfHL1GE)
 
 ## MIDI
 
