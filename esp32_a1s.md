@@ -31,9 +31,19 @@ Phil Schatzmann provides clear info about GPIO connections on the ESP32-A1S boar
 #define I2CSPEED 100000          // Clock Rate
 #define ES8388_ADDR 0x10         // Address of ES8388 I2C port 
 // Headphone and PA chip
+#define AUXIN_DETECT_GPIO         12
 #define HEADPHONE_DETECT 39  // High when no phone is connect (enable GPIO pullup)
 #define PA_ENABLE_GPIO 21    // enable power amplifier
+// Pushbuttons
+#define PIN_KEY1 36
+#define PIN_KEY2 13
+#define PIN_KEY3 19
+#define PIN_KEY4 23
+#define PIN_KEY5 18
+#define PIN_KEY6 5
+#define GREEN_LED_GPIO  22
 ```
+
 [Investigating the AI Thinker AudioKit Audio Input Bug](https://www.pschatzmann.ch/home/2021/12/15/the-ai-thinker-audiokit-audio-input-bug/)
 
 https://www.pschatzmann.ch/home/2020/05/22/synthesizer-for-the-esp32/
@@ -183,6 +193,5 @@ void setup() {
 // Arduino loop - copy sound to out
 void loop() { copier.copy(); }
 ```
-
 
 [Back to ESP32](./esp32.md)
