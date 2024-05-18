@@ -10,7 +10,7 @@ https://docs.ai-thinker.com/en/esp32-audio-kit
 
 ## Hardware
 
-Phil Schatzmann once more provided the clearest info on GPIO connections on the ESP32-A1S board in [The ‘AI Thinker Audio Kit’ Arduino Challenge](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/):
+Phil Schatzmann provides clear info about GPIO connections on the ESP32-A1S board in [The ‘AI Thinker Audio Kit’ Arduino Challenge](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/):
 
 ```c++
 // SD Card: DATA3 and CMD on-board switches need to be in the on position
@@ -24,7 +24,7 @@ Phil Schatzmann once more provided the clearest info on GPIO connections on the 
 #define PIN_I2S_AUDIO_KIT_WS 25
 #define PIN_I2S_AUDIO_KIT_DATA_OUT 26
 #define PIN_I2S_AUDIO_KIT_DATA_IN 35
-// I2C setupt to configure ES8388 Codec
+// I2C setup to configure ES8388 Codec
 #define I2C_MASTER_NUM I2C_NUM_0 // I2C port number for master dev
 #define I2C_MASTER_SCL_IO 32     
 #define I2C_MASTER_SDA_IO 33   
@@ -112,9 +112,9 @@ void loop() {
 }
 ```
 
-## Generated sine streamed to ES8388 codec using AudioTools and 
+## Generated sine streamed to ES8388 codec using AudioTools and Arduino-Audio-Driver
 
-The following example uses once more the [arduino-audio-tools](https://github.com/pschatzmann/arduino-audio-tools) library to generate a stream of I2S data with a sinusoidal signal. The [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library
+The following example uses once more the [arduino-audio-tools](https://github.com/pschatzmann/arduino-audio-tools) library to generate a stream of I2S data with a sinusoidal signal. The AudioBoard and I2SCodecStream classes of the[arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library are used for hardware setup: 
 
 ```c++
 /**
