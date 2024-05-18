@@ -10,11 +10,13 @@ https://docs.ai-thinker.com/en/esp32-audio-kit
 
 ## Hardware
 
-Phil Schatzmann provides clear info about GPIO connections on the ESP32-A1S board in [The ‘AI Thinker Audio Kit’ Arduino Challenge](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/):
+Phil Schatzmann provides clear info about GPIO connections on the ESP32-A1S board in [The ‘AI Thinker Audio Kit’ Arduino Challenge](https://www.pschatzmann.ch/home/2021/12/06/the-ai-thinker-audio-kit-experience-or-nothing-is-right/).
+
+See also  https://github.com/schreibfaul1/ESP32-audioI2S 
 
 ```c++
 // SD Card: DATA3 and CMD on-board switches need to be in the on position
-#define PIN_AUDIO_KIT_SD_CARD_CS 13
+#define PIN_AUDIO_KIT_SD_CARD_CS 13  // shared with SW 2!
 #define PIN_AUDIO_KIT_SD_CARD_MISO 2
 #define PIN_AUDIO_KIT_SD_CARD_MOSI 15
 #define PIN_AUDIO_KIT_SD_CARD_CLK  14
@@ -36,12 +38,14 @@ Phil Schatzmann provides clear info about GPIO connections on the ESP32-A1S boar
 #define PA_ENABLE_GPIO 21    // enable power amplifier
 // Pushbuttons
 #define PIN_KEY1 36
-#define PIN_KEY2 13
-#define PIN_KEY3 19
+#define PIN_KEY2 13  // shared with SPI_CS (SD Card)
+#define PIN_KEY3 19  // shared with LED D5?
 #define PIN_KEY4 23
 #define PIN_KEY5 18
 #define PIN_KEY6 5
 #define GREEN_LED_GPIO  22
+// #define LED_D5        19 ?
+
 ```
 
 [Investigating the AI Thinker AudioKit Audio Input Bug](https://www.pschatzmann.ch/home/2021/12/15/the-ai-thinker-audiokit-audio-input-bug/)
