@@ -1,3 +1,9 @@
+# ESP32-A1S Audio Kit Hardware
+
+https://docs.ai-thinker.com/en/esp32-audio-kit
+
+<img src="img/esp32-audio-kit2.png" alt="ESP32-A1S Audio Kit Board" width="100%"/>
+
 # ESP32-A1S code examples
 
 [Back to ESP32](./esp32.md)
