@@ -41,14 +41,16 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 * [**Modwiggler**](https://www.modwiggler.com/) - THE forum for all things related to modular synths.
 * Last but not least: The Subreddit [**/r/synthdiy**](https://www.reddit.com/r/synthdiy)
 
-## Mechanics and components
+## Mechanics, Front Panels and Enclosures
 
 * 3D-printed front panels on [Printables](https://www.printables.com/de/model/14009-mper-mostly-printed-euro-rack)
 * Attractive enclosures for pedals etc. at [banzaimusic.com](http://www.banzaimusic.com)
 * A general discussion on PCB and alumininum front panels: https://modwiggler.com/forum/viewtopic.php?t=278898 
-* Compact (outer diameter 30 mm) 24 RBG LED ring from [Duppa Components](https://www.duppa.net/shop/rgb-led-ring-small) for rotary encoders
 
-## Analog Hardware
+## Analog Hardware and Components
+
+* Felix Wiegand [wgdmodular] is a module developer, a [Youtuber](https://www.youtube.com/channel/UCtgYqBXaxMV6NLOBdpVrr9w) and Instagrammer. His website also gives good tips about buying those standard but sometimes hard-to-get components like jacks, pots, standoffs etc. His [GitHub repo](https://github.com/wgd-modular) features firmware for his Daisy Seed module "Loewenzahnhonig" module and KiCAD components and footprints for Eurorack modules.
+* Compact (outer diameter 30 mm) 24 RBG LED ring from [Duppa Components](https://www.duppa.net/shop/rgb-led-ring-small) for rotary encoders
 
 ## LoFi
 
