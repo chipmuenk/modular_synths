@@ -1,8 +1,11 @@
+[Back to ESP32](./esp32.md) | [Back to main](./README.md)
+
+<hr>
+
 # ESP32-A1S Audio Kit Hardware
 
+<a href="https://docs.ai-thinker.com/en/esp32-audio-kit"><img src="img/esp32-audio-kit2.png" alt="ESP32-A1S Audio Kit Board" width="100%"/></a>
 https://docs.ai-thinker.com/en/esp32-audio-kit
-
-<img src="img/esp32-audio-kit2.png" alt="ESP32-A1S Audio Kit Board" width="100%"/>
 
 # ESP32-A1S code examples
 
@@ -198,4 +201,6 @@ void setup() {
 void loop() { copier.copy(); }
 ```
 
-[Back to ESP32](./esp32.md)
+<hr>
+
+[Back to ESP32](./esp32.md) | [Back to main](./README.md)
