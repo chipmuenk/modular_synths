@@ -28,6 +28,15 @@ Libraries are installed in three different locations: In the Sketchbook folder (
 
 The easiest way to install new libraries directly from the internet is via the Library Manager in the left sidebar. Downloaded zipped libraries can be installed via `Sketch -> Include Library -> Add .ZIP Library` or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
 
+### Arduino ESP32 by Espressif
+
+Espressif provides integration of ESP32 cores and boards into the Arduino IDE with their [Arduino ESP32](https://docs.espressif.com/projects/arduino-esp32/) project. Several [libraries](https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html) add functionality for peripherals:
+
+- [I2S](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/i2s.html)
+- [ADC](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/adc.html)
+
+As the [Audio Development Framework ADF](https://github.com/espressif/esp-adf) by Espressif is a bit overwhelming for many applications, some libraries have been developed by independent developers:
+
 ## Hackerbox Audio DSP
 
 > Welcome to HackerBox 0079. Let's explore audio signal generation, inter-IC sound (I2S) audio streams, and digital signal processing (DSP). Configure an ESP32-A1S Audio Development Kit featuring a dual-core ESP32 microcontroller coupled to an integrated audio CODEC and a variety of audio interface and peripheral components. Program several audio processing examples leveraging an advanced stream-based hardware abstraction layer for the ESP32-A1S. Examples include wave generators, simple synthesizers, MP3 decoders for online stream sources as well as MP3 files on SD flash cards. Use GNU Octave (or MATLAB) to design and test digital FIR filters that can be implemented on the ESP32 Audio Development Kit. Hack multi-channel audio connectors:
@@ -42,7 +51,7 @@ Phil has created the two libraries arduino-audio-driver and arduino-audio-tools 
 
 The [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) library provides an easy API to configure different audio codec chips via I2C for streaming audio via I2S. Supported codecs are a.o. AC101, ES8388, ES8311, CS43L22 and ES7243.
 
-The library can be downloaded and installed as a ZIP file, it brings some examples for easy testing. Some of the examples require Arduino Audio Tools.
+The library can be downloaded and installed as a ZIP file including examples. Some of the examples require Arduino Audio Tools.
 
 ### Arduino Audio Tools
 
