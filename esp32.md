@@ -76,7 +76,6 @@ The library brings plenty of examples organized in subfolders:
 
 This [library](./esp32_audiokit.md) is deprecated, [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) (see above) should be used instead for new projects.
 
-
 ## Marcel License
 
 Marcel License's repo at https://github.com/marcel-licence has a lot of great music projects built around ESP-32:
@@ -101,27 +100,19 @@ For more information refer to the MIDI related project: [esp32_usb_midi](https:/
 - [ESP32 A1S with Arduino Audio Tools](https://youtu.be/oqtkR2FRKYI): Various examples for streaming audio (generated, I2S, HTTP, Bluetooth) with the ESP32 A1S using the Arduino IDE.
 - [Repo](https://github.com/thaaraak/es8388) with code for controlling the ES8388 codec
 
+## TBD Module
+
+An open-source soft- and hardware Eurorack module based on ESP32 module by [Robert Manzke](https://github.com/ctag-fh-kiel) of University Kiel with lots of code for various audio modules, including a collection of various digital implementations of the Moog VCF.
+
 ## Synthux
+
 Although the Synthux modules are built around Daisy Seed (STM32) microcontrollers, the open source code is interesting to look at under https://github.com/Synthux-Academy. For uploading files to the Daisy Seed, the [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html) needs to be installed to get the required drivers. This is described [here](https://github.com/electro-smith/DaisyWiki/wiki/1a.-Getting-Started-(Arduino-Edition)) and in detail [here](https://github.com/stm32duino/Arduino_Core_STM32/wiki/Getting-Started) ("Extra Step"). With the drivers installed, binaries can be installed on the Daisy Seed directly by using the [Daisy Web Programmer](https://electro-smith.github.io/Programmer/) (Chrome or Edge only, unfortunately). The platform "seed" has to be selected.
-
-
 
 ## Hardware
 
 ### ESP32 Audio Kit
 
-The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board, available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html), ticked all the right boxes for me: A powerful and widely used processor, audio codec included and lots of audio interfaces. The board is built around the [ESP32-A1S Audio break-out board](https://docs.ai-thinker.com/en/esp32-a1s) which also can/could be bought stand-alone.
-The break-out board contains an ESP32-WROVER module, that is an ESP32-D0WDQ6-V3 chip with external 4 MB SPI Flash and 8 MB PSRAM. The "A1S" suffix relates to the CODEC that is cconnected via I2S. My version contains an ES8388 chip replacing the AC101 CODEC in older versions.
-
-Besides the ESP32-A1S break-out board, the Audio Kit board encompasses:
-
-- CP2102 USB2UART bridge
-- 2 onboard microphones
-- stereo headphone output, stereo line-in input
-- 2 NS4150 Class D audio amplifiers for two speaker outputs (3W, 4 &Omega;)
-- 6 general purpose push buttons
-
-In the Arduino IDE, the board can be selected as Tools -> Board Manager -> esp32 -> ESP32 Dev Module
+The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board is available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html) and contains an audio codec as well as a stereo power amplifier - see [Details](./esp32_a1s.md).
 
 <hr>
 
