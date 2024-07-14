@@ -85,9 +85,15 @@ The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 
 * [**EuroPi**](https://github.com/Allen-Synthesis/EuroPi) is a module based on the Raspberry Pi Pico that can be reprogrammed in MicroPython..
 * [**Arduino Beat Detector**](https://projecthub.arduino.cc/mamifero/881c722e-1049-4d82-a91d-56f000ed7b60), using just a coupling capacitor and simple IIR filters to extract beat timing from audio data
 
-## ESP32
+### ESP32
 
 Tutorials, hard- and software are linked [here](esp32.md).
+
+### Teensy
+
+A low-cost, high-performance family of ARM based [uC boards](teensy.md) frequently used for audio projects.
+
+### Daisy Seed
 
 ## Faust
 
