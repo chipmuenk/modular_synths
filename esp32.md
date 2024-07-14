@@ -23,7 +23,9 @@ Even for experienced programmers it can make sense to install the Arduino IDE du
 If you enable "verbose output" under `File -> Preferences` you can watch some of the Arduino magic going on.
 
 You need to install the Arduino IDE and the ESP32 Board Support Package (described e.g. by [Random Nerd Tutorials (RNT)](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)). RNT has great tutorials and material for Arduino and ESP-32, highly recommended!
+
 ### Libraries
+
 Libraries are installed in three different locations: In the Sketchbook folder (`File -> Preferences -> Sketchbook location`), in the user folder (e.g. `Documents\Arduino\libraries` under Windows) or in the installation folder for system libraries (requiring elevated rights).
 
 The easiest way to install new libraries directly from the internet is via the Library Manager in the left sidebar. Downloaded zipped libraries can be installed via `Sketch -> Include Library -> Add .ZIP Library` or installed manually as described e.g. [here](https://learn.sparkfun.com/tutorials/installing-an-arduino-library/all) or [here](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries/).
@@ -108,11 +110,29 @@ An open-source soft- and hardware Eurorack module based on ESP32 module by [Robe
 
 Although the Synthux modules are built around Daisy Seed (STM32) microcontrollers, the open source code is interesting to look at under https://github.com/Synthux-Academy. For uploading files to the Daisy Seed, the [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html) needs to be installed to get the required drivers. This is described [here](https://github.com/electro-smith/DaisyWiki/wiki/1a.-Getting-Started-(Arduino-Edition)) and in detail [here](https://github.com/stm32duino/Arduino_Core_STM32/wiki/Getting-Started) ("Extra Step"). With the drivers installed, binaries can be installed on the Daisy Seed directly by using the [Daisy Web Programmer](https://electro-smith.github.io/Programmer/) (Chrome or Edge only, unfortunately). The platform "seed" has to be selected.
 
-## Hardware
+## ESP32 Hardware
 
 ### ESP32 Audio Kit
 
 The [ESP32 Audio Kit v2.2 A247](https://docs.ai-thinker.com/en/esp32-audio-kit) board is available for ca. 15 € at [Aliexpress](https://de.aliexpress.com/i/33003284057.html) and contains an audio codec as well as a stereo power amplifier - see [Details](./esp32_a1s.md).
+
+## Alternative Hardware Platforms
+
+### Daisy Seed
+
+Better libraries, very active audio development scene, programmable in C++, MaxDSP, graphical programming
+
+https://www.flowcode.co.uk/ ? MAX/MSP, gen~? PureData
+
+### Teensy
+
+Teensy 3.x boards are equipped with 32 bit ARM Cortex-M4F processors and a 12 bit DAC, Teensy 4.x boards have Cortex-M7 processors. Support at https://forum.pjrc.com/index.php. 
+
+Teensy boards are well supported for audio applications, there even is a GUI (Audio System Design Tool)[https://www.pjrc.com/teensy/gui/] for (Teensy Audio Library). This browser based tool allows drawing audio systems from library components and exporting the system to the Arduino IDE.
+
+### M5Stack
+
+Compact robust hardware, programmable in C++, Blockly.UI, FlowUI,
 
 <hr>
 
