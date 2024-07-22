@@ -27,7 +27,7 @@ Please contact me if you are interested in collaborations, workshops or sharing 
 
 Maker spaces, technical museums, universities, synth shops, synth fairs or conferences, ... ranging from 1/2 day to several days / evenings either in a row or once a week.
 
-## General
+## Maker and Shaker
 
 * [**Ray Wilson aka Music From Outer Space**](https://musicfromouterspace.com/): If you don't know this, it's time to dive in!
 * [**Moritz Klein**](https://www.youtube.com/c/MoritzKlein0/videos) certainly creates some of best synth related DIY stuff you can find on Youtube. Together with [Erica Synths](https://www.ericasynths.lv/) he even developed a series of educational DIY synth modules [mki x es.EDU](https://www.ericasynths.lv/news/mki-x-esedu/).
@@ -54,7 +54,7 @@ Maker spaces, technical museums, universities, synth shops, synth fairs or confe
 
 ## LoFi
 
-The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 80s is still available at prices round 3 ... 15 (also as a board in the same price range).
+The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 80s is still available at prices round 3 ... 15 € (also as a board in the same price range).
 
 * NA5Y: ["Space Invader Sounds Part 2 - The SN76477"](https://youtu.be/GSdYijiBqqs).
 * Steven Bolin, [SN76477 Synth Demo](https://youtu.be/atH1MvXDYYE)
@@ -79,28 +79,63 @@ The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 
   * [Raspberry Pi Pico MIDI Channel Merger](https://diyelectromusic.wordpress.com/2021/12/19/raspberry-pi-pico-midi-channel-merger/) works the other way round, merging signals from eight MIDI Inputs to one MIDI output.
   * [Raspberry Pi Pico Multi MIDI Router](https://diyelectromusic.wordpress.com/2021/12/28/raspberry-pi-pico-multi-midi-router/) is a five part project for a general 6-IN, 6-OUT MIDI routing device.
 
-## uC (general)
+## Digital Hardware and Components
 
 * [Raspberry Pi Pico: Grundlagen der Energieversorgung / Stromversorgung](https://www.elektronik-kompendium.de/sites/raspberry-pi/2611061.htm), how to power a RPi Pico from (German) via Micro-USB connector, VBUS pin, 3V3 pin or VSYS pin without frying it
-* [**EuroPi**](https://github.com/Allen-Synthesis/EuroPi) is a module based on the Raspberry Pi Pico that can be reprogrammed in MicroPython..
+* [**EuroPi**](https://github.com/Allen-Synthesis/EuroPi) is a module based on the Raspberry Pi Pico that can be reprogrammed in MicroPython.
+
+### Arduino
+
 * [**Arduino Beat Detector**](https://projecthub.arduino.cc/mamifero/881c722e-1049-4d82-a91d-56f000ed7b60), using just a coupling capacitor and simple IIR filters to extract beat timing from audio data
-
-### ESP32
-
-Tutorials, hard- and software are linked [here](esp32.md).
 
 ### Teensy
 
-A low-cost, high-performance family of ARM based [uC boards](teensy.md) frequently used for audio projects.
+[Teensy boards](teensy.md) are widely used low-cost, high-performance ARM M7 based microcontroller boards. Besides general purpose projects, Teensies are frequently used for audio applications due to good software libraries and a fast USB port.
 
 ### Daisy Seed
 
-## Faust
+[Daisy Seed boards](daisy.md) have been used for a lot of audio and synth projects due to their high-performance ARM processors and on-board HiFi-grade ADCs and DACs, unfortunately they are not so easily available and pricey in Germany.
+
+### ESP32
+
+[ESP32 modules and boards](esp32.md) give the most "bang for the buck" you can get, drawbacks are an overwhelming variety of boards and revisions and a lower quality of audio libraries for music making compared to Teensy and Daisy Seed.
+
+### OWL (Open Ware Laboratory)
+
+The OWL platform is an Open Source [Software](https://github.com/RebelTechnology/OpenWare) and [Hardware](https://www.openwarelab.org/), community-driven signal processing platform. Rebeltech builds and sells fully programmable pedals and Eurorack modules like the [Genius](https://www.rebeltech.org/product/genius/) based on this platform.
+
+### FPGAs
+
+[Open Hardware Eurorack Compatible Audio FPGA Front End](https://hackaday.com/2023/02/13/an-open-hardware-eurorack-compatible-audio-fpga-front-end/) is a really cool project, built around a AK4619VN four-channel audio codec providing four analog inputs and four analog outputs on a narrow module. Sample code for an Icebreaker FPGA (Lattice) board is provided and all files are on [Github](https://github.com/schnommus/eurorack-pmod). There is even a [Plugin](https://github.com/schnommus/verilog-vcvrack) allowing to run Verilog code inside the VCV Rack audio simulator!
+
+## Languages for Digital Audio
+
+### Faust
 
 > [Faust](https://faustdoc.grame.fr/) (Functional Audio Stream) is a functional programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc. It is used in the academia and, of course, by musicians.
 
 Faust has been implemented on low-cost uC platforms like ESP32 and Teensy, some of my experiences and experiments will be linked [here](faust.md).
 
-## FPGAs
+### PureData (pd)
 
-[Open Hardware Eurorack Compatible Audio FPGA Front End](https://hackaday.com/2023/02/13/an-open-hardware-eurorack-compatible-audio-fpga-front-end/) is a really cool project, built around a AK4619VN four-channel audio codec providing four analog inputs and four analog outputs on a narrow module. Sample code for an Icebreaker FPGA (Lattice) board is provided and all files are on [Github](https://github.com/schnommus/eurorack-pmod). There is even a [Plugin](https://github.com/schnommus/verilog-vcvrack) allowing to run Verilog code inside the VCV Rack audio simulator!
+[PureData](https://en.m.wikipedia.org/w/index.php?title=Pure_Data&wprov=rarw1) is a visual programming language for creating interactive computer music and multimedia. It is an open source project and was originally developed by Miller Puckette who also developed Max.
+
+pd describe data-flow systems where objects on a visual canvas receive, process and transmit atomic data types.
+
+There is support for Daisy platforms via [pd2dsy](https://github.com/electro-smith/pd2dsy).
+
+[libpd](https://github.com/libpd/libpd) packs puredata as an embeddable audio synthesis library.
+
+The [Pduino](ttps://at.or.at/hans/pd/objects.html) object provides Firmata-based access where [Firmata](https://github.com/firmata/arduino) is a protocol for communicating with microcontrollers from software on a host computer. Alternatively, you can control the Teensy via USB MIDI messages.
+
+### PlugData
+
+[plugdata](https://plugdata.org/) is a visual programming environment for PureData.
+
+### Max/MSP
+
+Due to common history, [Max](https://en.wikipedia.org/wiki/Max_%28software%29) is quite similar to pd and also describes data-flow systems. However, it is a commercial software published by [Cycling74](https://cycling74.com/) which have been acquired by Ableton in 2017.
+
+[Gen](https://docs.cycling74.com/max8/vignettes/gen_topic) is an extension for the Max environment that allows compiling visual code into a more efficient binary form that can also be exported outside the Max environment. for more details see a tutorial on the [gen~](https://cycling74.com/tutorials/gen~-for-beginners-part-1-a-place-to-start) object.
+
+[Maxuino](http://www.maxuino.org/) supports Teensy running StandardFirmata.

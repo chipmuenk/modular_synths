@@ -2,12 +2,16 @@
 
 > [Faust](https://faustdoc.grame.fr/) (Functional Audio Stream) is a functional programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc. It is used in the academia and, of course, by musicians.
 
+## Faust on Microcontrollers
+
 Faust has also been implemented on low-cost uC platforms like ESP32 and Teensy.
 
 It can be and is used as a base for hardware-oriented workshops:
-* https://ccrma.stanford.edu/workshops/faust-embedded-19/
-* https://faustdoc.grame.fr/tutorials/esp32/
-* https://hal.science/hal-02988312
+
+* [Embedded DSP With Faust Workshop](https://ccrma.stanford.edu/workshops/faust-embedded-19/), Making Low Latency Guitar Pedals and Synthesizer Modules (Teensy based), CCRMA, Stanford University, 2019.
+* [DSP on the ESP32 with Faust](https://faustdoc.grame.fr/tutorials/esp32/)
+* [DSP on the Teensy with Faust](https://faustdoc.grame.fr/tutorials/teensy/)
+* [A Faust Architecture for the ESP32 Microcontroller](https://hal.science/hal-02988312), 2020.
 
 ## First project
 As a "Hello World" I tried to implement the Faust ESP32 example on https://faustdoc.grame.fr/tutorials/esp32/. 
