@@ -27,7 +27,15 @@ Please contact me if you are interested in collaborations, workshops or sharing 
 
 Maker spaces, technical museums, universities, synth shops, synth fairs or conferences, ... ranging from 1/2 day to several days / evenings either in a row or once a week.
 
-## Maker and Shaker
+## Workshops and Courses
+
+Here is a small selection of courses available on the internet:
+
+* [DSP Lab for EPFL course](https://lcav.gitbook.io/dsp-labs), this online book is a step-by-step documentation for the lab of the EPFL course [COM-303 Signal processing for communications](https://isa.epfl.ch/imoniteur_ISAP/!itffichecours.htm?ww_i_matiere=24007074&ww_x_anneeacad=1866893861&ww_i_section=944590&ww_i_niveau=6683147&ww_c_langue=en)
+
+  Experiments are coded in Python on a PC and in C++ on a microcontroller, starting with a simple audio passthrough and doing pitch shifting, filtering, granular synthesis etc.
+
+## Makers and Shakers
 
 * [**Ray Wilson aka Music From Outer Space**](https://musicfromouterspace.com/): If you don't know this, it's time to dive in!
 * [**Moritz Klein**](https://www.youtube.com/c/MoritzKlein0/videos) certainly creates some of best synth related DIY stuff you can find on Youtube. Together with [Erica Synths](https://www.ericasynths.lv/) he even developed a series of educational DIY synth modules [mki x es.EDU](https://www.ericasynths.lv/news/mki-x-esedu/).
@@ -90,7 +98,7 @@ The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 
 
 ### Teensy
 
-[Teensy boards](teensy.md) are widely used low-cost, high-performance ARM M7 based microcontroller boards. Besides general purpose projects, Teensies are frequently used for audio applications due to good software libraries and a fast USB port.
+[Teensy boards](teensy/teensy.md) are widely used low-cost, high-performance ARM M7 based microcontroller boards. Besides general purpose projects, Teensies are frequently used for audio applications due to good software libraries and a fast USB port.
 
 ### Daisy Seed
 
