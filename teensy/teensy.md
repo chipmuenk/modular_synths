@@ -1,4 +1,4 @@
-[Back to main](./README.md)
+[Back to main](../README.md)
 
 <hr>
 
@@ -28,7 +28,7 @@ Under Linux, you need to download [00-teensy.rules](http://www.pjrc.com/teensy/0
 
 `sudo cp 00-teensy.rules /etc/udev/rules.d/00-teensy.rules`
 
-in order to give non-root users access to the Teensy via the USB port. This text file contains some more info and trouble shooting tips.
+in order to give non-root users (write) access to the Teensy via the USB port. This text file contains some more info and trouble shooting tips.
 
 # Synth and Audio Projects with Teensy Microcontroller Boards
 
@@ -64,8 +64,14 @@ Part of the course is a lab with a focus on music and the Teensy:
 - [Lab 3: Sensors and Physical Interface Design (with Teensy)](https://ccrma.stanford.edu/courses/250a-spring-2021/labs/3/)
 - [Lab 4: "Hybrid" Instruments](https://ccrma.stanford.edu/courses/250a-spring-2021/labs/4/)
 
+## Teensy Experiments
+
+- [Audio pass-through via USB](teensy_usb_audio_loopback.md)
+- Audio pass-through using audio shield
+- Audio out with a generated signal
+
 ## USB MIDI for Teensy
 
 <hr>
 
-[Back to main](./README.md)
+[Back to main](../README.md)
