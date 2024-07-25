@@ -24,6 +24,8 @@ Add the Teensy URL under `File -> Preferences -> Additional boards manager URLs`
 
 Next, in the main Arduino window, open `Boards Manager` by clicking the left-side board icon, search for "teensy", and click "Install" Teensy (for Arduino IDE 2.04 or later). This covers all Teensy boards.
 
+Libraries are installed under `.arduino15/packages/teensy` (Linux)
+
 Under Linux, you need to download [00-teensy.rules](http://www.pjrc.com/teensy/00-teensy.rules) and copy it to your rules via
 
 `sudo cp 00-teensy.rules /etc/udev/rules.d/00-teensy.rules`
@@ -38,9 +40,11 @@ https://www.pjrc.com/store/audio_tutorial_kit.html
 
 There are two good reasons for choosing the Teensy to create audio applications: Its fast (480 Mbit/s) USB port and the [Audio System Design Tool](https://www.pjrc.com/teensy/gui/), a browser based UI for drawing sources and sinks to process 16 bit 44.1 kHz streaming audio. "Export" will generate C++ code that can be copied into a code editor.
 
+The GUI is automatically installed with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
+
 Before compiling, you need to configure the USB interface for audio under
 [img](img/teensy_arduino_usb_audio_settings.png)
-<img src="img/teensy_arduino_usb_audio_settings.png" alt="USB audio settings for Arduino IDE" width="40%"/>
+<img src="img/teensy_arduino_usb_audio_settings.png" alt="USB audio settings for Arduino IDE" width="30%"/>
 
 Before uploading the binary to the Teensy board, you need to select the board under Tools -> Ports -> [teensy ports] .
 
