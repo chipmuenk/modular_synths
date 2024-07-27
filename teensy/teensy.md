@@ -70,9 +70,15 @@ Part of the course is a lab with a focus on music and the Teensy:
 
 ## Teensy Experiments
 
+The following experiments all use the Teensy to process streaming audio via the USB audio interface:
+
 - [Audio pass-through via USB](teensy_usb_audio_loopback.md)
+- [Generate pink noise and a sine signal](teensy_usb_audio_sine.md)
+- [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
+
+When an audio shield is connected to the Teensy board, you can also use this combination as an audio interface for analog signals.
+
 - Audio pass-through using audio shield
-- Audio out with a generated signal
 
 ## USB MIDI for Teensy
 

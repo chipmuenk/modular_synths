@@ -4,7 +4,9 @@
 
 # USB Audio FIR Filtering with Teensy
 
-This is a stripped down version of the `File -> Examples -> Audio -> Effects -> Filter_FIR`, using its coefficient files.
+This is a stripped down version of the example `File -> Examples -> Audio -> Effects -> Filter_FIR`, using its coefficient files.
+
+An audio signal is fed into the Teensy via its USB audio input, both channels are filtered with FIR filters and streamed to the USB output.
 
 ## Teensy GUI
 
@@ -113,6 +115,12 @@ which imports the coefficients for a 100 tap FIR lowpass filter with a passband 
 (short)0x0037,
 ...
 ```
+
+## Measurement
+
+Generate a stereo track with 44100 Hz sampling frequency and 5 s of white noise. Alternatively, you can generate a 5 s chirp signal.
+
+The recorded signal can be analyzed as a periodogram (Analyze -> Plot Spectrum) or displayed as spectrogram (left panel, right mouse button -> Spectrogram).
 
 <hr>
 
