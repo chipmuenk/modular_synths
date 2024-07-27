@@ -1,6 +1,10 @@
+[Back to Teensy](./teensy.md)
+
+<hr>
+
 # USB Audio with a sine on Teensy
 
-A simple experiment to test sine tone generation and audio output via the USB interface.
+A simple experiment generating a sine tone and pink noise, routing both to the USB audio output.
 
 ## Teensy GUI
 
@@ -8,30 +12,34 @@ A simple experiment to test sine tone generation and audio output via the USB in
 
 ## Code
 
-    #include <Audio.h>
-    #include <Wire.h>
-    #include <SPI.h>
-    #include <SD.h>
-    #include <SerialFlash.h>
+```C
+#include <Audio.h>
+#include <Wire.h>
 
-    // GUItool: begin automatically generated code
-    AudioSynthNoisePink      pink1;          //xy=503,345
-    AudioSynthWaveformSine   sine1;          //xy=506,294
-    AudioOutputUSB           usb1;           //xy=650,315
+// GUItool: begin automatically generated code
+AudioSynthNoisePink      pink1;
+AudioSynthWaveformSine   sine1;
+AudioOutputUSB           usb1;
 
-    AudioConnection          patchCord1(pink1, 0, usb1, 1);
-    AudioConnection          patchCord2(sine1, 0, usb1, 0);
+AudioConnection          patchCord1(pink1, 0, usb1, 1);
+AudioConnection          patchCord2(sine1, 0, usb1, 0);
+// GUItool: end automatically generated code
 
-    // GUItool: end automatically generated code
+void setup() {
+// put your setup code here, to run once:
+sine1.frequency(200);
+sine1.amplitude(0.75);
+pink1.amplitude(0.75);
 
-    void setup() {
-    // put your setup code here, to run once:
-    sine1.frequency(200);
-    sine1.amplitude(0.75);
-    pink1.amplitude(0.75);
-    }
+AudioMemory(10);
+delay(250);
+}
 
-    void loop() {
-    // put your main code here, to run repeatedly:
-    }
+void loop() {
+// put your main code here, to run repeatedly:
+}
+```
 
+<hr>
+
+[Back to Teensy](./teensy.md)
