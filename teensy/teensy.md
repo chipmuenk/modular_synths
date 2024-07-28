@@ -22,7 +22,7 @@ In order to use the Arduino IDE to upload binaries to Teensy boards, you need to
 
 Add the Teensy URL under `File -> Preferences -> Additional boards manager URLs` add `https://www.pjrc.com/teensy/package_teensy_index.json`, separated by a comma without blanks from other entries (if any).
 
-Next, in the main Arduino window, open `Boards Manager` by clicking the left-side board icon, search for "teensy", and click "Install" Teensy (for Arduino IDE 2.04 or later). This covers all Teensy boards.
+Next, in the main Arduino window, open `Boards Manager` by clicking the left-side board icon, search for "teensy", and click "Install" Teensy (for Arduino IDE 2.04 or later). This contains all Teensy boards.
 
 Libraries are installed under `.arduino15/packages/teensy` (Linux)
 
@@ -30,7 +30,11 @@ Under Linux, you need to download [00-teensy.rules](http://www.pjrc.com/teensy/0
 
 `sudo cp 00-teensy.rules /etc/udev/rules.d/00-teensy.rules`
 
-in order to give non-root users (write) access to the Teensy via the USB port. This text file contains some more info and trouble shooting tips.
+in order to give non-root users (write) access to the Teensy via the USB port. This text file contains some more infos and trouble shooting tips.
+
+## Faust
+
+[Faust](../faust.md) is a functional programming language for sound synthesis and audio processing. [faust2teensy](https://faustdoc.grame.fr/manual/tools/#faust2teensy) creates an object that can be used with the Teensy audio library. See also the tutorial [Faust for Teensy](https://faustdoc.grame.fr/tutorials/teensy/).
 
 # Synth and Audio Projects with Teensy Microcontroller Boards
 
@@ -75,6 +79,9 @@ The following experiments all use the Teensy to process streaming audio via the 
 - [Audio pass-through via USB](teensy_usb_audio_loopback.md)
 - [Generate pink noise and a sine signal](teensy_usb_audio_sine.md)
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
+- Audio filtering with a custom MA filter
+- FFT on the Teensy
+- Requantization
 
 When an audio shield is connected to the Teensy board, you can also use this combination as an audio interface for analog signals.
 

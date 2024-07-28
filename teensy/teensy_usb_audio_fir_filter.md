@@ -118,9 +118,9 @@ which imports the coefficients for a 100 tap FIR lowpass filter with a passband 
 
 ## Measurement
 
-Generate a stereo track with 44100 Hz sampling frequency and 5 s of white noise. Alternatively, you can generate a 5 s chirp signal.
+Generate a stereo track with 44100 Hz sampling frequency and e.g. 5 s of white noise or a chirp signal.
 
-The recorded signal can be analyzed as a periodogram (Analyze -> Plot Spectrum) or displayed as spectrogram (left panel, right mouse button -> Spectrogram).
+The recorded signal can be displayed as a time signal, analyzed as a periodogram (Analyze -> Plot Spectrum) or displayed as spectrogram (left panel, right mouse button -> Spectrogram).
 
 <hr>
 
