@@ -34,7 +34,9 @@ in order to give non-root users (write) access to the Teensy via the USB port. T
 
 ## Faust
 
-[Faust](../faust.md) is a functional programming language for sound synthesis and audio processing. [faust2teensy](https://faustdoc.grame.fr/manual/tools/#faust2teensy) creates an object that can be used with the Teensy audio library. See also the tutorial [Faust for Teensy](https://faustdoc.grame.fr/tutorials/teensy/).
+[Faust](../faust.md) is a functional programming language for sound synthesis and audio processing. [faust2teensy](https://faustdoc.grame.fr/manual/tools/#faust2teensy) creates an object that can be used with the Teensy audio library. 
+
+See also the tutorial [Faust for Teensy](https://faustdoc.grame.fr/tutorials/teensy/) and the presentation at Grame 2020 [Making Faust run on Hardware - Building a simple prototype Poly Synth with Faust DSP, Arduino, Teensy 4.0, and Modular](https://www.youtube.com/live/EhgaFutFbQg?feature=shared) with [resources on GitHub](https://github.com/makingsoundmachines/Faust-on-Teensy)
 
 # Synth and Audio Projects with Teensy Microcontroller Boards
 
@@ -46,11 +48,13 @@ There are two good reasons for choosing the Teensy to create audio applications:
 
 The GUI is automatically installed with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
 
-Before compiling, you need to configure the USB interface for audio under
-[img](img/teensy_arduino_usb_audio_settings.png)
-<img src="img/teensy_arduino_usb_audio_settings.png" alt="USB audio settings for Arduino IDE" width="30%"/>
+Configure the USB interface type for "Audio"
 
-Before uploading the binary to the Teensy board, you need to select the board under Tools -> Ports -> [teensy ports] .
+<img src="../img/teensy_arduino_usb_audio_settings.png" alt="USB audio settings for Arduino IDE" width="50%"/>
+
+before starting compilation.
+
+Select the board under `Tools -> Ports -> [teensy ports]` before uploading.
 
 In Audacity, select "Teensy Audio" for input and output. Then, you can use a stereo track with a recording or a generated signal as a source and another stereo track for recording the signal that has been processed by the Teensy.
 
@@ -76,8 +80,8 @@ Part of the course is a lab with a focus on music and the Teensy:
 
 The following experiments all use the Teensy to process streaming audio via the USB audio interface:
 
-- [Audio pass-through via USB](teensy_usb_audio_loopback.md)
-- [Generate pink noise and a sine signal](teensy_usb_audio_sine.md)
+- [Audio pass-through via USB](teensy_usb_audio_loopback.md):  Receive an audio USB stream from your computer and send it back.
+- [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel, send the signal via USB audio to your computer.
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
 - Audio filtering with a custom MA filter
 - FFT on the Teensy
@@ -86,6 +90,7 @@ The following experiments all use the Teensy to process streaming audio via the 
 When an audio shield is connected to the Teensy board, you can also use this combination as an audio interface for analog signals.
 
 - Audio pass-through using audio shield
+- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md)
 
 ## USB MIDI for Teensy
 
