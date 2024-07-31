@@ -40,6 +40,19 @@ void loop() {
 }
 ```
 
+### Modify the sine frequency with a potentiometer
+
+Use the same code as above, additionally read out an analog input connected to a potentiometer to vary the sine frequency.
+
+```C
+...
+void loop() {
+// put your main code here, to run repeatedly:
+sine1.frequency(freq);
+
+}
+```
+
 <hr>
 
 [Back to Teensy](./teensy.md)
