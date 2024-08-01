@@ -21,7 +21,7 @@ Please contact me if you are interested in collaborations, workshops or sharing 
 * **Retro / LoFi** synths can be constructed with low effort for those who love the crispy sounds from the 8 bit era.
 * **Free-style courses** starting with just a schematic for advanced synthesizer developers / electronic tinkerers. Breadboards work well for the complexity level of a typical synth module, and from this a stripline board or a PCB can be designed and manufactured.
 * **Faust + ESP32** audio platform (see below), focussing on algorithms and a software-centric approach to music electronics, suitable for stomp boxes and modular systems alike.
-* Arduino / Teensy + some analog interfacing
+* **Arduino / Teensy** (see below) + some analog interfacing
 
 ### Locations & durations
 
@@ -59,6 +59,12 @@ Here is a small selection of courses available on the internet:
 
 * Felix Wiegand [wgdmodular] is a module developer, a [Youtuber](https://www.youtube.com/channel/UCtgYqBXaxMV6NLOBdpVrr9w) and Instagrammer. His website also gives good tips about buying those standard but sometimes hard-to-get components like jacks, pots, standoffs etc. His [GitHub repo](https://github.com/wgd-modular) features firmware for his Daisy Seed module "Loewenzahnhonig" module and KiCAD components and footprints for Eurorack modules.
 * Compact (outer diameter 30 mm) 24 RBG LED ring from [Duppa Components](https://www.duppa.net/shop/rgb-led-ring-small) for rotary encoders
+
+### Breadboarding
+
+* [Mutable Instruments Breadboard Friends](https://pichenettes.github.io/mutable-instruments-diy-archive/bbf/) have some nice ideas for making breadboarding audio / synth projects easier
+* [Erica Synths Labor](https://www.ericasynths.lv/shop/diy-kits-1/edu-diy-labor/) is the perfect breadboard environment for creating modular synths
+* [ADDAC System](https://www.addacsystem.com/en/products/modules/addac200-series/addac210), a breadboard that is part of a modular synth
 
 ## LoFi
 
