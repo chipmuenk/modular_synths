@@ -4,7 +4,7 @@
 
 # USB Audio with a sine on Teensy
 
-A simple experiment generating a sine tone and pink noise, routing both to the USB audio output.
+A simple experiment generating a sine tone and pink noise, routing both to the USB audio output. This uses the `AudioSynthNoisePink` and `AudioSynthWaveformSine` objects and their methods `amplitude()` and `frequency()` where amplitude is set between 0 and 1 and frequency in Hz.
 
 ## Teensy GUI
 
@@ -42,7 +42,7 @@ void loop() {
 
 ### Modify the sine frequency with a potentiometer
 
-Use the same code as above, additionally read out an analog input connected to a potentiometer to vary the sine frequency.
+Use the same code as above, additionally read out an analog input connected to a potentiometer to vary the sine frequency. The example uses the analog input A1 (pin 15). You can also use the volume potentiometer of the Teensy audio shield (if you have one) that is connected to that pin.
 
 ```C
 ...
