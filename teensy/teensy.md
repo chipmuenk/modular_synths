@@ -4,7 +4,7 @@
 
 # Hardware
 
-Recent Teensy microcontroller boards are build around 32 bit ARM controllers (see [details](https://www.pjrc.com/teensy/techspecs.html)):<<
+Recent Teensy microcontroller boards are build around 32 bit ARM controllers (see [details](https://www.pjrc.com/teensy/techspecs.html)):
 
 - Teensy 3.6 (deprecated) with a 180 MHz Cortex M4F controller (32 bit floating point unit, DSP instructions), 256k RAM and 1024k flash, two twelve 12 bit DACs
 - Teensy 4.0 with a 600 MHz Cortex M7 controller (32 and 64 floating point unit, DSP), 1024k RAM and 1984k flash, no DAC
@@ -78,19 +78,23 @@ Part of the course is a lab with a focus on music and the Teensy:
 
 ## Teensy Experiments
 
-The following experiments all use the Teensy to process streaming audio via the USB audio interface:
+The following experiments all use the Teensy 4.0 board, see the following image for pinout ([(c) www.pjrc.com](https://www.pjrc.com/teensy/pinout.html)):
 
-- [Audio pass-through via USB](teensy_usb_audio_loopback.md):  Receive an audio USB stream from your computer and send it back.
+<img src="../img/teensy_40_pinout.png" alt="Pinout Teensy 4.0" width="70%"/>
+
+The first experiments stream audio via the USB interface, requiring only the Teensy board:
+
+- [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console.
 - [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel, send the signal via USB audio to your computer.
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
 - Audio filtering with a custom MA filter
 - FFT on the Teensy
 - Requantization
 
-When an audio shield is connected to the Teensy board, you can also use this combination as an audio interface for analog signals.
+An additional Teensy audio shield provides analog audio inputs and outputs:
 
 - Audio pass-through using audio shield
-- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md)
+- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer.
 
 ## USB MIDI for Teensy
 
