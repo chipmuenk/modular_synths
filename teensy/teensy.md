@@ -44,9 +44,9 @@ https://www.pjrc.com/store/audio_tutorial_kit.html
 
 ## USB Audio for Teensy
 
-There are two good reasons for choosing the Teensy to create audio applications: Its fast (480 Mbit/s) USB port and the [Audio System Design Tool](https://www.pjrc.com/teensy/gui/), a browser based UI for drawing sources and sinks to process 16 bit 44.1 kHz streaming audio. "Export" will generate C++ code that can be copied into a code editor.
+There are two good reasons for choosing the Teensy to create audio applications: Its fast (480 Mbit/s) USB port and the [Audio System Design Tool](https://www.pjrc.com/teensy/gui/), a browser based UI for drawing sources and sinks to process 16 bit 44.1 kHz streaming audio. "Export" will generate boilerplate C++ code for the objects and the wiring that can be copied into a code editor. It can be imported back into the Audio System Tool when the xy coordinate comments are not deleted.
 
-The GUI is automatically installed with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
+The GUI is installed together with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
 
 Configure the USB interface type for "Audio"
 
@@ -84,8 +84,8 @@ The following experiments all use the Teensy 4.0 board, see the following image 
 
 The first experiments stream audio via the USB interface, requiring only the Teensy board:
 
-- [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console.
-- [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel, send the signal via USB audio to your computer.
+- [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console of the Arduino IDE.
+- [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel and send the signal via USB audio to your computer.
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
 - Audio filtering with a custom MA filter
 - FFT on the Teensy
@@ -93,8 +93,21 @@ The first experiments stream audio via the USB interface, requiring only the Tee
 
 An additional Teensy audio shield provides analog audio inputs and outputs:
 
-- Audio pass-through using audio shield
 - [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer.
+
+- [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
+
+### Youtube
+
+ The Youtube playlist [Teensy Audio Projects - Sound Processing and Playback](https://youtube.com/playlist?list=PLDnEejiR3mBwSYLSxqluI-c01M04JyP2c&si=lmTB3covy8xjWrW0) of [GadgetReboot](https://www.youtube.com/@GadgetReboot) describes more complex examples:
+
+- [Teensy Audio Part 1: How to Use the GUI Design Tool - Play wav Files from SD Card](https://youtu.be/L4gE3RoatlI). A good introduction to the general setup, the GUI tool, the Teensy audio shield, debouncers ...
+- [Teensy Audio Part 2: Chorus and Flange Audio Effects](https://youtu.be/DUJS2dYhLfs)
+
+[Matt Venn](https://www.youtube.com/@matthewvenn) uses PlatformIO instead of the Arduino IDE:
+
+- [Teensy FX part 1](https://youtu.be/fyk4Z21knqk) describing a stereo delay / reverb effect that is controlled via the serial interface and a PyQT GUI on the PC.
+- [Teensy FX part 2- board design](https://youtu.be/zHr6EKKnGfY) shows how to design a hardware interface instead of the PyQT GUI.
 
 ## USB MIDI for Teensy
 

@@ -4,7 +4,7 @@
 
 # USB Audio Loopback with Teensy
 
-A minimum setup for debugging which simply provides a loopback for the audio signal from the USB input to the USB output on the Teensy board. Use Audacity to stream, receive and analyze audio signals. The peak value of the audio signal is printed to the console which is helpful for debugging.
+A first experiment that requires only the Teensy board and Audacity (or another audio software) on the PC: An audio stream is generated, received and analyzed with Audacity, using the USB audio input and output of the Teensy board. The peak values of the audio signal are printed to the console which is helpful for debugging. The usage of `delay()` vs. `millis()` vs. `elapsedMillis` is discussed. 
 
 ## Audio Buffering
 
