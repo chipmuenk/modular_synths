@@ -16,14 +16,20 @@ In both cases the maximum input and output voltage ranges can be a limiting fact
 
 A general concern is the package: Many modern OPAmps are not available in breadboard-friendly DIL packages but only as tiny SMDs. 
 
-OPA     | Manufacturer | &Delta; V_in | &Delta; V_out | V_offset [mV]| GBW [MHz]| SR [V/&mu;s] | Comment
---------|--------------|--------------|---------------|--------------|----------|--------------|----
-OP741   | many         |  |  |  |  |  |  obsolete
-TL07x   | many         |  |  |  |  |  |  universal
-NE5532  | many         |  |  |  |  |  |  dual, low-noise, fast
-OP97    | ADI          |  |  |  |  |  |  precision
-OPAx377 | TI           |  |  |  |  |  |  precision, low-voltage
+OPA     | Manuf. | #     | V_S [V]   | V_in [V]     | V_out [V]     | V_off [mV]| GBW [MHz]| SR [V/&mu;s] | Comment
+--------|--------|:-----:|-----------|--------------|---------------|-----------|----------|--------------|----
+OP741   | many   | 1     | 10 ... 36 |  |  |  |  |  | obsolete
+TL07x   | many   | 1/2/4 |           |  |  |  |  |  | universal
+NE5532/4| many   | 2/4   |           |  |  |  |  |  |  |  dual, low-noise, fast
+OP97    | ADI    |       |           |  |  |  |  |  |   precision
+TLC2272/4 | TI   | 2/4   | 4.4 ... 16| RR | RR | 1 | 2 |  3.6 |
+OPAx377 | TI     | 1/2/4 |           |  |  |  |  |  |  precision, low-voltage
 
-<hr>
+- Manuf.: Manufacturer. Successful opamps often are produced by different manufacturers with identical (or very similar) specifications and the same number
+- #: number of device per package (often, variations of the opamp are available like TL071/72/74 with different number of opamps per package)
+- V_S: Min. / max. supply voltage
+- V_in: Min. / max. input voltage, given as the difference to the supply voltages
+
+---
 
 [Back to main](../README.md)
