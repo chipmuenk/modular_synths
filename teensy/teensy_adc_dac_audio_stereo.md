@@ -1,16 +1,16 @@
 [Back to Teensy](./teensy.md)
 
-<hr>
+---
 
 # Analog input and output with stereo effect
 
 This example shows how to read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block. The implemented formula is
 
-```math 
+```math
 OUT = 0.5 * \left(L \cdot (1 + \sin(2 \pi f_1 t)) + R\cdot (1 - \sin(2 \pi f_1 t)) \right)
 ```
 
-where $f_1$ is the low frequency rotating the stereo signal in your head. 
+where $f_1$ is the low frequency rotating the stereo signal in your head.
 
 ## Teensy GUI
 
@@ -103,7 +103,6 @@ void loop() {
 
 Connect an analog source to the line input (if you don't have an analog source, replace it by an USB audio source.)
 
-
-<hr>
+---
 
 [Back to Teensy](./teensy.md)

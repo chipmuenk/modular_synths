@@ -1,6 +1,6 @@
 [Back to Teensy](./teensy.md)
 
-<hr>
+---
 
 # USB Audio with a sine on Teensy
 
@@ -53,6 +53,6 @@ sine1.frequency(freq);
 }
 ```
 
-<hr>
+---
 
 [Back to Teensy](./teensy.md)

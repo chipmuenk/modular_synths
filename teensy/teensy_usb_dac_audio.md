@@ -1,6 +1,6 @@
 [Back to Teensy](./teensy.md)
 
-<hr>
+---
 
 # USB Audio to Headphone Converter with volume control
 
@@ -13,6 +13,9 @@ The following image shows the schematic of the Teensy audio shield 4.0 rev D by 
 - [PJRC, Audio Adaptor Boards for Teensy 3.x and Teensy 4.x](https://www.pjrc.com/store/teensy3_audio.html): Hardware overview
 - https://mnaganov.github.io/2020/10/audio-output-on-teensy-4x-boards.html
 - https://www.pjrc.com/store/audio_tutorial_kit.html
+
+Note that line-in and line-out can only be used via the audio-I/O connector where you have to solder
+some sockets.
 
 ## Teensy GUI
 
@@ -73,7 +76,6 @@ You should now be able to use the Teensy with the audio shield like a USB sound 
 
 Of course, you could also use the more efficient methods for executing the `analogRead()` function only every 100 ms described in [teensy_usb_audio_loopback](teensy_usb_audio_loopback.md)
 
-
-<hr>
+---
 
 [Back to Teensy](./teensy.md)
