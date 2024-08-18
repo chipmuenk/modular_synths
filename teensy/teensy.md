@@ -1,6 +1,6 @@
 [Back to main](../README.md)
 
-<hr>
+---
 
 # Hardware
 
@@ -36,7 +36,7 @@ in order to give non-root users (write) access to the Teensy via the USB port. T
 
 The [Audio System Design Tool](https://www.pjrc.com/teensy/gui/) is a browser based (NodeJS) UI for drawing sources and sinks to exchange streaming audio packets. "Export" will generate boilerplate C++ code for the objects and the wiring that can be copied into a code editor. Objects can be renamed by double-clicking them. "Import" recreates the graphic representation from the C++ code when the xy coordinate comments have not been deleted.
 
-The design toon is also installed locally together with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
+The design tool is also installed locally together with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
 
 ## Faust
 
@@ -45,8 +45,6 @@ The design toon is also installed locally together with TeensyDuino under `.ardu
 See also the tutorial [Faust for Teensy](https://faustdoc.grame.fr/tutorials/teensy/) and the presentation at Grame 2020 [Making Faust run on Hardware - Building a simple prototype Poly Synth with Faust DSP, Arduino, Teensy 4.0, and Modular](https://www.youtube.com/live/EhgaFutFbQg?feature=shared) with [resources on GitHub](https://github.com/makingsoundmachines/Faust-on-Teensy).
 
 # Synth and Audio Projects with Teensy Microcontroller Boards
-
-https://www.pjrc.com/store/audio_tutorial_kit.html
 
 ## USB Audio for Teensy
 
@@ -71,6 +69,7 @@ This [workshop](https://www.pjrc.com/store/audio_tutorial_kit.html) by the creat
 
 The page contains [PDF](https://www.pjrc.com/store/workshop_t4.pdf) and [video tutorial](https://youtu.be/wqt55OAabVs) by Paul Stoffregen as well as actual unrehearsed workshop videos, showing also what can go wrong.
 
+
 ## CCRMA Course "Physical Interaction Design for Music" (Spring 2021)
 by Romain Michon and Douglas McCausland
 
@@ -87,7 +86,7 @@ Part of the course is a lab with a focus on music and the Teensy:
 
 The following experiments all use the Teensy 4.0 board, see the following image for pinout ([(c) www.pjrc.com](https://www.pjrc.com/teensy/pinout.html)):
 
-<img src="../img/teensy_40_pinout.png" alt="Pinout Teensy 4.0" width="70%"/>
+<img src="../img/teensy_40_pinout.png" alt="Pinout Teensy 4.0" width="60%"/>
 
 Some experiments stream audio via the USB interface, requiring only the Teensy board, some use the Teensy Audio Shield for analog input and / or output. With the help of the Audio System Design Tool (GUI), sources and sinks can be exchanged easily.
 
@@ -101,24 +100,24 @@ Some experiments stream audio via the USB interface, requiring only the Teensy b
 - FFT on the Teensy with [Hackster.io Teensy Audio](https://youtu.be/S8A7ZuupS_M)
 - Requantization
 
-- [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
+### Youtube Videos
 
-### Youtube
+**Synthux Academy** gives a [one hour walkthrough](https://youtu.be/u694SVc5Bys) for beginners on how do build an LDR controlled Teensy Synth.
 
-Synthux Academy gives a [one hour walkthrough](https://youtu.be/u694SVc5Bys) for beginners on how do build an LDR controlled Teensy Synth.
-
-The Youtube playlist [Teensy Audio Projects - Sound Processing and Playback](https://youtube.com/playlist?list=PLDnEejiR3mBwSYLSxqluI-c01M04JyP2c&si=lmTB3covy8xjWrW0) of [GadgetReboot](https://www.youtube.com/@GadgetReboot) describes more complex examples:
+The Youtube playlist [Teensy Audio Projects - Sound Processing and Playback](https://youtube.com/playlist?list=PLDnEejiR3mBwSYLSxqluI-c01M04JyP2c&si=lmTB3covy8xjWrW0) of [**GadgetReboot**](https://www.youtube.com/@GadgetReboot) describes more complex examples:
 
 - [Teensy Audio Part 1: How to Use the GUI Design Tool - Play wav Files from SD Card](https://youtu.be/L4gE3RoatlI). A good introduction to the general setup, the GUI tool, the Teensy audio shield, debouncers ...
 - [Teensy Audio Part 2: Chorus and Flange Audio Effects](https://youtu.be/DUJS2dYhLfs)
 
-[Matt Venn](https://www.youtube.com/@matthewvenn) uses PlatformIO instead of the Arduino IDE:
+[**Matt Venn**](https://www.youtube.com/@matthewvenn) uses PlatformIO instead of the Arduino IDE:
 
 - [Teensy FX part 1](https://youtu.be/fyk4Z21knqk) describing a stereo delay / reverb effect that is controlled via the serial interface and a PyQT GUI on the PC.
 - [Teensy FX part 2- board design](https://youtu.be/zHr6EKKnGfY) shows how to design a hardware interface instead of the PyQT GUI.
 
+[**Nuts and Volts**](https://www.youtube.com/@NotesAndVolts) constructs a complete synth in this 11 part [YouTube series](https://youtu.be/UJcZxyB5rVc) - very nice!
+
 ## USB MIDI for Teensy
 
-<hr>
+---
 
 [Back to main](../README.md)
