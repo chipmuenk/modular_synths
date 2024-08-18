@@ -4,15 +4,15 @@
 
 # USB Audio to Headphone Converter with volume control
 
-This example shows how to setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S and output the analog signal to the headphone output. An analog input is used to set the headphone volume.
+This example shows how to setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S and output the analog signal to the headphone output. An analog input is used to control the headphone volume.
 
 The following image shows the schematic of the Teensy audio shield 4.0 rev D by the creator Paul Stoffregen.
 
 <img src="../img/teensy_audio_shield_4_schematic.png" alt="Schematic of the Teensy Audio Shield 4.0 rev. D" width="90%"/>
 
-See https://mnaganov.github.io/2020/10/audio-output-on-teensy-4x-boards.html
-
-https://www.pjrc.com/store/audio_tutorial_kit.html
+- [PJRC, Audio Adaptor Boards for Teensy 3.x and Teensy 4.x](https://www.pjrc.com/store/teensy3_audio.html): Hardware overview
+- https://mnaganov.github.io/2020/10/audio-output-on-teensy-4x-boards.html
+- https://www.pjrc.com/store/audio_tutorial_kit.html
 
 ## Teensy GUI
 
