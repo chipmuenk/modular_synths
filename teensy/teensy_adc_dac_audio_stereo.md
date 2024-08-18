@@ -103,6 +103,10 @@ void loop() {
 
 Connect an analog source to the line input (if you don't have an analog source, replace it by an USB audio source.)
 
+### Further experiments
+
+Try to create a "robotic voice" by modulating the audio signal with a low-frequency (around 100 Hz) sinusoidal signal.
+
 ---
 
 [Back to Teensy](./teensy.md)

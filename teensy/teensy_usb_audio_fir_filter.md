@@ -1,6 +1,6 @@
 [Back to Teensy](./teensy.md)
 
-<hr>
+---
 
 # USB Audio FIR Filtering with Teensy
 
@@ -122,6 +122,10 @@ Generate a stereo track with 44100 Hz sampling frequency and e.g. 5 s of white n
 
 The recorded signal can be displayed as a time signal, analyzed as a periodogram (Analyze -> Plot Spectrum) or displayed as spectrogram (left panel, right mouse button -> Spectrogram).
 
-<hr>
+## Further experiments / ideas
+
+Discussions on [IIR Direct Form II Filter Implementation on Teensy 4.0](https://forum.pjrc.com/index.php?threads/iir-direct-form-ii-filter-implementation-on-teensy-4-0.69123/).
+
+---
 
 [Back to Teensy](./teensy.md)
