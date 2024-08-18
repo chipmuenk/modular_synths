@@ -32,11 +32,17 @@ Under Linux, you need to download [00-teensy.rules](http://www.pjrc.com/teensy/0
 
 in order to give non-root users (write) access to the Teensy via the USB port. This text file contains some more infos and trouble shooting tips.
 
+## Audio System Design Tool
+
+The [Audio System Design Tool](https://www.pjrc.com/teensy/gui/) is a browser based (NodeJS) UI for drawing sources and sinks to exchange streaming audio packets. "Export" will generate boilerplate C++ code for the objects and the wiring that can be copied into a code editor. Objects can be renamed by double-clicking them. "Import" recreates the graphic representation from the C++ code when the xy coordinate comments have not been deleted.
+
+The design toon is also installed locally together with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
+
 ## Faust
 
 [Faust](../faust.md) is a functional programming language for sound synthesis and audio processing. [faust2teensy](https://faustdoc.grame.fr/manual/tools/#faust2teensy) creates an object that can be used with the Teensy audio library. 
 
-See also the tutorial [Faust for Teensy](https://faustdoc.grame.fr/tutorials/teensy/) and the presentation at Grame 2020 [Making Faust run on Hardware - Building a simple prototype Poly Synth with Faust DSP, Arduino, Teensy 4.0, and Modular](https://www.youtube.com/live/EhgaFutFbQg?feature=shared) with [resources on GitHub](https://github.com/makingsoundmachines/Faust-on-Teensy)
+See also the tutorial [Faust for Teensy](https://faustdoc.grame.fr/tutorials/teensy/) and the presentation at Grame 2020 [Making Faust run on Hardware - Building a simple prototype Poly Synth with Faust DSP, Arduino, Teensy 4.0, and Modular](https://www.youtube.com/live/EhgaFutFbQg?feature=shared) with [resources on GitHub](https://github.com/makingsoundmachines/Faust-on-Teensy).
 
 # Synth and Audio Projects with Teensy Microcontroller Boards
 
@@ -44,11 +50,7 @@ https://www.pjrc.com/store/audio_tutorial_kit.html
 
 ## USB Audio for Teensy
 
-There are two good reasons for choosing the Teensy to create audio applications: Its fast (480 Mbit/s) USB port and the [Audio System Design Tool](https://www.pjrc.com/teensy/gui/), a browser based UI for drawing sources and sinks to process 16 bit 44.1 kHz streaming audio. "Export" will generate boilerplate C++ code for the objects and the wiring that can be copied into a code editor. It can be imported back into the Audio System Tool when the xy coordinate comments are not deleted.
-
-The GUI is installed together with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
-
-Configure the USB interface type for "Audio"
+The Teensy boards have a fast (480 Mbit/s) USB port, ideally suited for audio applications. Configure the USB interface type for "Audio" (or "Audio/Serial/ ...")
 
 <img src="../img/teensy_arduino_usb_audio_settings.png" alt="USB audio settings for Arduino IDE" width="50%"/>
 
@@ -56,13 +58,18 @@ before starting compilation.
 
 Select the board under `Tools -> Ports -> [teensy ports]` before uploading.
 
-In Audacity, select "Teensy Audio" for input and output. Then, you can use a stereo track with a recording or a generated signal as a source and another stereo track for recording the signal that has been processed by the Teensy.
-
+In Audacity, select "Teensy Audio" for input and output. Then, you can use a stereo track with a recording or a generated signal as a source and another empty stereo track for recording the signal that has been processed by the Teensy.
 
 See also:
 
 - [Notes and Volts, "Teensy as a USB audio interface"](https://youtu.be/om9yePUsYps)
 - [PJRC, "Teensy 4.0 Development Board"](https://www.pjrc.com/store/teensy40.html) (-> "USB Device")
+
+## Teensy Audio Tutorial Kit by Paul Stoffregen and Alysia Dynamik
+
+This [workshop](https://www.pjrc.com/store/audio_tutorial_kit.html) by the creator of the Audio Library himself gives a walkthrough through the whole process of creating audio applications with the Teensy with a detailled treatment of FFT - highly recommended!
+
+The page contains [PDF](https://www.pjrc.com/store/workshop_t4.pdf) and [video tutorial](https://youtu.be/wqt55OAabVs) by Paul Stoffregen as well as actual unrehearsed workshop videos, showing also what can go wrong.
 
 ## CCRMA Course "Physical Interaction Design for Music" (Spring 2021)
 by Romain Michon and Douglas McCausland
@@ -89,7 +96,8 @@ Some experiments stream audio via the USB interface, requiring only the Teensy b
 - [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
 - [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel and send the signal via USB audio to your computer.
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
-- Audio filtering with a custom MA filter
+- [Creating custom audio objects with AudioRecordQueue and AudioPlayQueue](teensy_audio_custom_queue.md)
+- [Creating custom audio objects by deriving from AudioStream](teensy_audio_custom_stream.md)
 - FFT on the Teensy with [Hackster.io Teensy Audio](https://youtu.be/S8A7ZuupS_M)
 - Requantization
 

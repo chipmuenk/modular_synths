@@ -8,7 +8,7 @@ A first experiment that requires only the Teensy board and Audacity (or another 
 
 ## Audio Buffering
 
-The TeensyDuino audio library is hard-coded for 16-bit, 44.1kHz sample rate, with a 128-sample buffer (2.9 ms latency). The USB connection is hard-coded for stereo. During compilation, the Arduino IDE needs to be set to `Tools -> USB Type -> Audio`. See also https://www.pjrc.com/teensy/td_libs_Audio.html
+The TeensyDuino audio library is hard-coded for 16-bit, 44.1kHz sample rate, with a 128-sample buffer (2.9 ms latency). The USB connection is hard-coded for stereo. During compilation, the Arduino IDE needs to be set to `Tools -> USB Type -> Audio`. See also [PJRC: Teensy Audio Library](https://www.pjrc.com/teensy/td_libs_Audio.html) and, in more detail, [Github: Audio Library Internals](https://github.com/TeensyUser/doc/wiki/Audio-Library-internals).
 
 The audio buffer size for all audio connections needs to be set with `AudioMemory(numberBlocks)` during `setup()` where `numberBlocks` is the number of 128 sample blocks, for a start a value of 10 (29 ms) is fine. Higher numbers reserve more memory that might be needed otherwise, lower numbers might cause "hiccups" due to buffer underflows. For debugging, use the function `AudioMemoryUsageMax()`. See the discussion [AudioMemory() - what parameter should I pass?](https://forum.pjrc.com/index.php?threads/audiomemory-what-parameter-should-i-pass.39245/). See the example [teensy_usb_audio_fir_filter.md](./teensy_usb_audio_fir_filter.md) for an example how to use these functions.
 
@@ -19,8 +19,8 @@ The additional `delay()` statements in the setup() part help to avoid some initi
 Further info: 
 
 - [Teensy Audio over USB](https://openaudio.blogspot.com/2016/10/teensy-audio-over-usb.html)
-- [Nuts & Volts: TEENSY - USB Audio Interface](https://youtu.be/om9yePUsYps) walks through the hardware and software setup and shows how to connect the line input of the Teensy.
-- [PJRC: Audio Connections & Memory](https://www.pjrc.com/teensy/td_libs_AudioConnection.html) shows a.o. how to setup Audacity for simultaneous playback and recording.
+- [Nuts & Volts (YouTube): "TEENSY - USB Audio Interface"](https://youtu.be/om9yePUsYps) walks through the hardware and software setup and shows how to connect the line input of the Teensy.
+- [PJRC, Audio Connections & Memory](https://www.pjrc.com/teensy/td_libs_AudioConnection.html) shows a.o. how to setup Audacity for simultaneous playback and recording.
 - [PJRC Forum, "USB Audio for Teensy 3.0"](https://forum.pjrc.com/index.php?threads/usb-audio-for-teensy-3-0.24309/page-2), developer discussions on the audio library
 
 ## Teensy GUI
