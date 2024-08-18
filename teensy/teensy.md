@@ -4,7 +4,7 @@
 
 # Hardware
 
-Recent Teensy microcontroller boards are build around 32 bit ARM controllers (see [details](https://www.pjrc.com/teensy/techspecs.html)):
+Recent Teensy microcontroller boards are build around 32 bit ARM controllers (see a [comparison](https://www.pjrc.com/teensy/techspecs.html) and details on [Teensy 4.0](https://www.pjrc.com/store/teensy40.html) and [Teensy 4.1](https://www.pjrc.com/store/teensy41.html)):
 
 - Teensy 3.6 (deprecated) with a 180 MHz Cortex M4F controller (32 bit floating point unit, DSP instructions), 256k RAM and 1024k flash, two twelve 12 bit DACs
 - Teensy 4.0 with a 600 MHz Cortex M7 controller (32 and 64 floating point unit, DSP), 1024k RAM and 1984k flash, no DAC
@@ -58,11 +58,11 @@ Select the board under `Tools -> Ports -> [teensy ports]` before uploading.
 
 In Audacity, select "Teensy Audio" for input and output. Then, you can use a stereo track with a recording or a generated signal as a source and another stereo track for recording the signal that has been processed by the Teensy.
 
-[Notes and Volts, "Teensy as a USB audio interface"](https://youtu.be/om9yePUsYps)
 
-https://www.pjrc.com/store/teensy41.html (usb audio)
+See also:
 
-https://forum.pjrc.com/index.php?threads/usb-audio-for-teensy-3-0.24309/page-2
+- [Notes and Volts, "Teensy as a USB audio interface"](https://youtu.be/om9yePUsYps)
+- [PJRC, "Teensy 4.0 Development Board"](https://www.pjrc.com/store/teensy40.html) (-> "USB Device")
 
 ## CCRMA Course "Physical Interaction Design for Music" (Spring 2021)
 by Romain Michon and Douglas McCausland
@@ -82,24 +82,24 @@ The following experiments all use the Teensy 4.0 board, see the following image 
 
 <img src="../img/teensy_40_pinout.png" alt="Pinout Teensy 4.0" width="70%"/>
 
-The first experiments stream audio via the USB interface, requiring only the Teensy board:
+Some experiments stream audio via the USB interface, requiring only the Teensy board, some use the Teensy Audio Shield for analog input and / or output. With the help of the Audio System Design Tool (GUI), sources and sinks can be exchanged easily.
 
 - [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console of the Arduino IDE.
+- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer.
+- [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
 - [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel and send the signal via USB audio to your computer.
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
 - Audio filtering with a custom MA filter
-- FFT on the Teensy
+- FFT on the Teensy with [Hackster.io Teensy Audio](https://youtu.be/S8A7ZuupS_M)
 - Requantization
-
-An additional Teensy audio shield provides analog audio inputs and outputs:
-
-- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer.
 
 - [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
 
 ### Youtube
 
- The Youtube playlist [Teensy Audio Projects - Sound Processing and Playback](https://youtube.com/playlist?list=PLDnEejiR3mBwSYLSxqluI-c01M04JyP2c&si=lmTB3covy8xjWrW0) of [GadgetReboot](https://www.youtube.com/@GadgetReboot) describes more complex examples:
+Synthux Academy gives a [one hour walkthrough](https://youtu.be/u694SVc5Bys) for beginners on how do build an LDR controlled Teensy Synth.
+
+The Youtube playlist [Teensy Audio Projects - Sound Processing and Playback](https://youtube.com/playlist?list=PLDnEejiR3mBwSYLSxqluI-c01M04JyP2c&si=lmTB3covy8xjWrW0) of [GadgetReboot](https://www.youtube.com/@GadgetReboot) describes more complex examples:
 
 - [Teensy Audio Part 1: How to Use the GUI Design Tool - Play wav Files from SD Card](https://youtu.be/L4gE3RoatlI). A good introduction to the general setup, the GUI tool, the Teensy audio shield, debouncers ...
 - [Teensy Audio Part 2: Chorus and Flange Audio Effects](https://youtu.be/DUJS2dYhLfs)
