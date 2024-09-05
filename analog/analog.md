@@ -26,6 +26,7 @@ TLC2272/4 | TI   | 2/4   | 4.4 ... 16| RR | RR | 1 | 2 |  3.6 |
 OPAx377 | TI     | 1/2/4 |           |  |  |  |  |  |  precision, low-voltage
 TLV278x | TI | 2 / 4 | 1.8 ... 3.6 | RR|RR| 3 |8|5| low-voltage
 LM6142/4 |TI|2/4|1.8 ... 24|RR|RR|1|17|25|
+AD8031/2 |ADI|1/2|2.7 ... 12|RR|RR|6|80|30
 
 - Manuf.: Manufacturer. Successful opamps often are produced by different manufacturers with identical (or very similar) specifications and the same number
 - #: number of device per package (often, variations of the opamp are available like TL071/72/74 with different number of opamps per package)
