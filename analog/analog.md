@@ -24,6 +24,7 @@ NE5532/4| many   | 2/4   |           |  |  |  |  |  |  |  dual, low-noise, fast
 OP97    | ADI    |       |           |  |  |  |  |  |   precision
 TLC2272/4 | TI   | 2/4   | 4.4 ... 16| RR | RR | 1 | 2 |  3.6 |
 OPAx377 | TI     | 1/2/4 |           |  |  |  |  |  |  precision, low-voltage
+TLV246x | TI | 1/2/4 | 2.7 ... 6 | RR|RR| 2 |6.4|1.6| low-voltage, low-cost
 TLV278x | TI | 2 / 4 | 1.8 ... 3.6 | RR|RR| 3 |8|5| low-voltage
 LM6142/4 |TI|2/4|1.8 ... 24|RR|RR|1|17|25|
 AD8031/2 |ADI|1/2|2.7 ... 12|RR|RR|6|80|30
