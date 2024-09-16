@@ -36,7 +36,9 @@ in order to give non-root users (write) access to the Teensy via the USB port. T
 
 The [Audio System Design Tool](https://www.pjrc.com/teensy/gui/) is a browser based (NodeJS) UI for drawing sources and sinks to exchange streaming audio packets. "Export" will generate boilerplate C++ code for the objects and the wiring that can be copied into a code editor. Objects can be renamed by double-clicking them. "Import" recreates the graphic representation from the C++ code when the xy coordinate comments have not been deleted.
 
-The design tool is also installed locally together with TeensyDuino under `.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html` and is started by opening the file with a browser.
+The design tool is also installed locally together with TeensyDuino under [.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html](.arduino15/packages/teensy/hardware/avr/1.59.0/libraries/Audio/gui/index.html) and is started by opening the file with a browser.
+
+Under Windows, this is most likely under `C:\Users\<USER_NAME>\Arduino15\...`
 
 ## Faust
 
@@ -91,7 +93,7 @@ The following experiments all use the Teensy 4.0 board, see the following image 
 Some experiments stream audio via the USB interface, requiring only the Teensy board, some use the Teensy Audio Shield for analog input and / or output. With the help of the Audio System Design Tool (GUI), sources and sinks can be exchanged easily.
 
 - [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console of the Arduino IDE.
-- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer.
+- [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer. Optionally, the signal can be output to USB in parallel.
 - [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
 - [Playing a sound file from SD card with reverb](teensy_audio_dac_sd_card_reverb.md): Play a sound file from an SD card (requires audio shield or Teensy 4.1) and / or analog input / USB input and apply reverb.
 - [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel and send the signal via USB audio to your computer.

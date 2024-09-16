@@ -74,7 +74,25 @@ Select "Teensy Audio: USB Audio" as the playback device. This is only available 
 
 You should now be able to use the Teensy with the audio shield like a USB sound card (DAC only). The volume can be controlled via the PC USB volume setting (didn't work with my Linux PC) or a potentiometer connected to pin 15 (the volume pot on the Teensy audio shield).
 
-Of course, you could also use the more efficient methods for executing the `analogRead()` function only every 100 ms described in [teensy_usb_audio_loopback](teensy_usb_audio_loopback.md)
+Of course, you could also use the more efficient methods for executing the `analogRead()` function only every 100 ms described in [teensy_usb_audio_loopback](teensy_usb_audio_loopback.md).
+
+### Additional experiment
+
+You can also route the audio signal to the DAC and to the USB in parallel.
+
+```C
+...
+// GUItool: begin automatically generated code
+AudioInputUSB            usb1;
+AudioOutputI2S           i2s1;
+
+AudioConnection          patchCord1(usb1, 0, i2s1, 0);
+AudioConnection          patchCord2(usb1, 1, i2s1, 1);
+
+AudioControlSGTL5000     sgtl5000_1;
+// GUItool: end automatically generated code
+...
+```
 
 ---
 
