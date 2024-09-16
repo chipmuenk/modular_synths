@@ -12,6 +12,28 @@ OUT = 0.5 * \left(L \cdot (1 + \sin(2 \pi f_1 t)) + R\cdot (1 - \sin(2 \pi f_1 t
 
 where $f_1$ is the low frequency rotating the stereo signal in your head.
 
+## RAM and Processor Utilization
+
+Some effects can be quite heavy on memory and CPU utilization, the following functions help to track resource consumption. 
+
+### Memory
+
+The following functions return the number of memory blocks (128 x 2 x 16 bit) used by the audio library.
+
+- `AudioMemoryUsage();`: Returns the number of blocks currently in use.
+- `AudioMemoryUsageMax();` : Return the maximum number of blocks that have ever been used. This is by far the most useful function for monitoring memory usage.
+- `AudioMemoryUsageMaxReset();` : Reset the maximum reported by `AudioMemoryUsageMax()`.
+
+### Processor
+
+All of the following functions return the processor usage as a number between 0 and 100, representing an estimate of the percentage of the total CPU time consumed.
+
+- `AudioProcessorUsage();` :  Returns an estimate of the total CPU time used during the most recent audio library update.
+- `AudioProcessorUsageMax();` : Return an estimate of the maximum percentage of CPU time any audio update has ever used. This function is the most useful for assuring the audio processing is operating within acceptable limits. 
+- `AudioProcessorUsageMaxReset();` : Reset the maximum reported by `AudioProcessorUsageMax()`.
+
+Processor usage can also be reported per object using `anyObject.AudioProcessorUsage();`, `anyObject.AudioProcessorUsageMax();` and `anyObject.processorUsageMaxReset(); `.
+
 ## Teensy GUI
 
 <img src="../img/teensy_gui_adc_dac_audio_stereo.png" alt="Teensy GUI: Analog input and output with stereo effect" width="60%"/>
