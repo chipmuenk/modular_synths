@@ -66,6 +66,7 @@ AudioControlSGTL5000     sgtl5000;       //xy=388,306
 //const int myInput = AUDIO_INPUT_MIC;  // select MIC input
 const int myInput = AUDIO_INPUT_LINEIN;  // select LINEIN
 
+// define two buffers for 16 bit (short) samples
 short buf_L[AUDIO_BLOCK_SAMPLES];  // AUDIO_BLOCK_SAMPLES = 128, samples 
 short buf_R[AUDIO_BLOCK_SAMPLES];  // per packet, defined in Audio library
 
@@ -94,7 +95,7 @@ void setup(void)
 void loop(void)
 {
 #ifndef STRAIGHT_THRU
-  // declare two uninitialized pointers (wild pointers) to short (int16) type
+  // declare two uninitialized (wild) pointers to short (int16) type
   // of data, i.e. to some random memory address. Is this good C++?
   short *bp_L, *bp_R;   
                         
