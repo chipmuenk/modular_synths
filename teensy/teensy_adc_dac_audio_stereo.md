@@ -96,6 +96,7 @@ AudioMemory(10);
 sgtl5000_1.enable();
 sgtl5000_1.volume(0.5);
 sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
+// sgtl5000_1.inputSelect(AUDIO_INPUT_MIC);
 sine1.frequency(0.5);
 sine1.amplitude(0.5);
 dc1.amplitude(0.5);
