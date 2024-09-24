@@ -4,7 +4,7 @@
 
 # Playing a sound file from SD card with reverb
 
-This example shows how to play an audio file from the SD card on the Teensy audio shield, mix it with analog and USB input and send it through a stereo reverb. The output is written to the analog and USB audio output. The SD card communicates via the SPI bus independently from the USB port and the CODEC (I2S bus). Therefore, you can use all three inputs at the same time!
+This example shows how to play an audio file from the SD card on the Teensy audio shield, mix it with analog and USB audio input and send it through a stereo reverb. The output is written to the analog and USB audio output. The SD card communicates via the SPI bus independently from the USB port and the CODEC (I2S bus). Therefore, you can use all three inputs at the same time!
 
 ## SD Card
 
