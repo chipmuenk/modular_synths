@@ -14,26 +14,39 @@ IIR filters are often constructed from cascaded biquadratic (biquad) or second-o
 
 <img src="../img/biquad.png" alt="Biquad filter stage" width="40%"/>
 
-is quite robust against internal overflows (only one summation node, two-pole filter section follows two-zero section). THe filter topology is called "direct" because it *directly* implements the difference equation $h[n]$.
+is quite robust against internal overflows (only one summation node, two-pole filter section follows two-zero section). THe filter topology is called "direct" because it *directly* implements the difference equation 
+$y[n] = b_0  x[n] + b_1  x[n-1] + b_2  x[n-2] - a_1  y[n-1] - a_2  y[n-2]$, yielding the system function
 
-This topology is also used in the Teensy Audio block "Biquad" which implements an IIR filter made of 1 ... 4 cascaded biquad sections, giving a total filter order of up to $N = 8$. The resulting slope between pass and stop band is $N \cdot 20$ dB/dec or $N \cdot 6$ dB/oct.
+$$
+H(z) = \frac{b_0 + b_1  z^{-1} + b_2 z^{-2} }{1 + a_1  z^{-1} + a_2 z^{-2} }.
+$$
+
+The widely used CMSIS (Common Microcontroller Software Interface Standard) DSP library uses this sign convention.
+
+Python Scipy / Matlab filter design routines deliver and expect recursive coefficients with opposite sign.
+
+This topology (with CMSIS sign convention) is also used in the Teensy Audio block "Biquad" which implements an IIR filter made of 1 ... 4 cascaded biquad sections, giving a total filter order of up to $N = 8$. The resulting slope between pass and stop band is $N \cdot 20$ dB/dec or $N \cdot 6$ dB/oct.
 
 The filter stages can be configured by using `setLowpass(stage, frequency, Q)`, `setHighpass()`, `setBandpass()` or `setNotch()` where `stage = 0 ... 3` selects the number of the stage, frequency is the corner frequency in Hz and `Q` is a quality factor. For low- and highpass filter this creates resonant peaking for Q > 0.707 which may cause clipping of the signal. For bandpass and notch filter, Q controls the width of passband resp. notch.
 
 Creating a higher order filter with a defined pass and stop-band behaviour this way is quite difficult, probably it is easier to use a filter design tool like pyfda and export the coefficients. These coefficients can be used with `setCoefficients(stage, array[5])`
 
-Configure one stage of the filter (0 to 3) with an arbitrary filter response. The array of coefficients is in order: B0, B1, B2, A1, A2. Each coefficient must be less than 2.0 and greater than -2.0 and should be of type 'double'. Alternately, it may be type 'int', where 1.0 is represented by 1073741824 (2^30). 
+Configure one stage of the filter (0 to 3) with an arbitrary filter response. The array of coefficients is in order: `b0, b1, b2, a1, a2`. Each coefficient must be $-2.0 < c < 2.0 $ and should be of type 'double'. Alternatively, it may be of type 'int', where 1.0 is represented by $2^{30} = 1073741824$.
 
 [Direct-form 2 (DF2)](https://ccrma.stanford.edu/~jos/filters/Direct_Form_II.html) is another filter topology, See Discussions on 
 [IIR Direct Form II Filter Implementation on T eensy 4.0](https://forum.pjrc.com/index.php?threads/iir-direct-form-ii-filter-implementation-on-teensy-4-0.69123/).
 
 Filters with low corner frequencies ($f_c < 400$ Hz for sampling frequency $f_S = 44.1$ kHz or normalized $F_c < 0.01$ Hz) tend to become unstable as the very small coefficients introduce large numerical errors.
 
+The coefficients in the example below have been generated with pyfda for a notch filter with 
+
 ## State-Variable (Chamberlin) Filter
 
 This is a second order filter with a rolloff of 20 dB/dec. or 12 dB/oct., it is numerically more robust than the biquad filter described above. Filter stages can be cascaded in order to achieve higher filter orders.
 
-This kind of filter is derived from a state-space description of the discrete-time system, it allows setting the corner frequency and the amount of peaking ("Q") independently with a single parameter each. Additionally, low-pass, high-pass and band-pass output are available at the same time. These features make state-variable filters very attractive for music electronic applications where especially the corner frequency is modulated to create rich sounds.
+This filter is derived from a state-space description of the discrete-time system, it allows controlling the corner frequency in real time via the frequency control input which expects values in the range $-1.0 ... +1.0$. `octaveControl(octaves)` determines how many octaves a full scale input modulates the corner frequency. `frequency(f)` sets the corner frequency in Hz when the control input is 0. The combination of those parameters controls $K$ in the figure below.
+
+The amount of peaking ("Q") can be set with `resonance(Q)` ($0.7 \le Q \le 5.0$) independently and in real-time. Low-pass, high-pass and band-pass output are available at the same time. These features make state-variable filters very attractive for music electronic applications where corner frequency and resonance are modulated to create rich sounds.
 
 <img src="../img/chamberlin_sv_filter.png" alt="State-variable filter" width="50%"/>
 
@@ -54,28 +67,26 @@ Except for the `setup()` and `loop()` statements, the code has been generated by
 #include <SerialFlash.h>
 
 // GUItool: begin automatically generated code
-AudioInputUSB            usb_i;           //xy=306,585
-AudioInputI2S            i2s_i;           //xy=307,625
-AudioMixer4              mix_R_i; //xy=482,661
-AudioMixer4              mix_L_i; //xy=483,597
-AudioFilterStateVariable filter1;        //xy=634,603
-AudioFilterBiquad        biquad1;        //xy=637,661
-AudioOutputI2S           i2s_o;           //xy=816,596
-AudioOutputUSB           usb_o;           //xy=818,654
+AudioInputUSB            usb_i;          //xy=417,1233
+AudioFilterBiquad        biquad;        //xy=588,1281
+AudioFilterStateVariable state_variable1;        //xy=591,1233
+AudioOutputUSB           usb_o;          //xy=772,1227
 
-AudioConnection          patchCord1(usb_i, 0, mix_L_i, 0);
-AudioConnection          patchCord2(usb_i, 1, mix_R_i, 0);
-AudioConnection          patchCord3(i2s_i, 0, mix_L_i, 1);
-AudioConnection          patchCord4(i2s_i, 1, mix_R_i, 1);
-AudioConnection          patchCord5(mix_R_i, biquad1);
-AudioConnection          patchCord6(mix_L_i, 0, filter1, 0);
-AudioConnection          patchCord7(filter1, 0, i2s_o, 0);
-AudioConnection          patchCord8(filter1, 0, usb_o, 0);
-AudioConnection          patchCord9(biquad1, 0, i2s_o, 1);
-AudioConnection          patchCord10(biquad1, 0, usb_o, 1);
+AudioConnection          patchCord1(usb_i, 0, state_variable1, 0);
+AudioConnection          patchCord2(usb_i, 1, biquad, 0);
+AudioConnection          patchCord3(biquad, 0, usb_o, 1);
+AudioConnection          patchCord4(state_variable1, 0, usb_o, 0);
 
-AudioControlSGTL5000     sgtl5000_1;     //xy=316,670
 // GUItool: end automatically generated code
+
+
+double coeffs_notch[5] = {
+    0.43393598816657514,
+    -2.03415958401572e-07,
+    0.4339359881665751,
+    2.0341595841077975e-07,
+    0.13212802366684975
+};
 
 void setup() {
 Serial.begin(9600);
@@ -83,9 +94,13 @@ delay(300);
 
 AudioMemory(8);  // allocate buffer memory for audio streams
 
-// Initialize the filter with low_pass coefficients
-fir1.begin(fir_list[fir_idx].coeffs, fir_list[fir_idx].num_coeffs);
-fir2.begin(fir_list[2].coeffs, fir_list[2].num_coeffs);
+// Initialize the system
+//sine1.frequency(0.5);
+//sine1.amplitude(0.9);
+state_variable1.frequency(500.0);
+state_variable1.resonance(1.0);
+// state_variable.octaveControl(1.0);
+biquad.setCoefficients(0, coeffs_notch);
 Serial.println("setup done");
 }
 
@@ -109,17 +124,13 @@ if (millis() - last_time >= 2500) {
 }
 ```
 
-
 ## Measurement
 
-Generate a stereo track with 44100 Hz sampling frequency and e.g. 5 s of white noise or a chirp signal.
+Generate a stereo track with 44100 Hz sampling frequency and e.g. 5 s of white noise or a chirp signal. Record the filtered signal.
 
 The recorded signal can be displayed as a time signal, analyzed as a periodogram (Analyze -> Plot Spectrum) or displayed as spectrogram (left panel, right mouse button -> Spectrogram).
 
-The 
-
 ## Further experiments / ideas
-
 
 ---
 
