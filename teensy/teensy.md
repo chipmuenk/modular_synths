@@ -3,6 +3,9 @@
 ---
 
 # Hardware
+Teensy boards are widely used low-cost, high-performance ARM M7 based microcontroller boards. Besides general purpose projects, Teensies are frequently used for audio applications due to good software libraries and a fast USB port.
+
+<img src="../img/teensy_4_0_c_r.jpg" alt="Teensy microcontroller board" width="50%"/>
 
 Recent Teensy microcontroller boards are build around 32 bit ARM controllers (see a [comparison](https://www.pjrc.com/teensy/techspecs.html) and details on [Teensy 4.0](https://www.pjrc.com/store/teensy40.html) and [Teensy 4.1](https://www.pjrc.com/store/teensy41.html)):
 
