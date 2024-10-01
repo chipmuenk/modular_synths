@@ -101,7 +101,8 @@ Some experiments stream audio via the USB interface, requiring only the Teensy b
 - [Playing a sound file from SD card with reverb](teensy_audio_dac_sd_card_reverb.md): Play a sound file from an SD card (requires audio shield or Teensy 4.1) and / or analog input / USB input and apply reverb.
 - [Generate pink noise and a sine signal](teensy_usb_audio_sine.md): Generate pink noise on one channel and a sine signal on the other channel and send the signal via USB audio to your computer.
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
-- [Audio filtering with IIR filters](teensy_usb_audio_iir_filter.md) (under development)
+- [Audio filtering with biquad IIR filters](teensy_usb_audio_iir_filter_biquad.md) (under development)
+- [Audio filtering with state-variable IIR filters](teensy_usb_audio_iir_filter_state_variable.md) (under development)
 - [Creating custom audio objects with AudioRecordQueue and AudioPlayQueue](teensy_audio_custom_queue.md)
 - [Creating custom audio objects by deriving from AudioStream](teensy_audio_custom_stream.md)
 - FFT on the Teensy with [Hackster.io Teensy Audio](https://youtu.be/S8A7ZuupS_M)
