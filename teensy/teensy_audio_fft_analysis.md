@@ -12,7 +12,11 @@ In this example an audio stream with sample rate of 44.1 kHz is analysed with a 
 
 ## Code
 
-The code uses the methods `myfft.read(bin)` resp. `myfft.read(bin1, bin2)` which yield ...
+`myfft.available()` returns True every time the FFT has produced new data (approx. 86 times per second).
+
+The code uses the methods `myfft.read(bin)` which returns (the magnitude?) a float between 0 and 1.0 resp. `myfft.read(firstBin, lastBin)` which returns the sum of the specified bins. The higher audio octaves contain many bins, which are typically read as a group for audio visualization.
+
+`myfft.output[num]` where num is 0 to 511 yields the raw 16 bit output data bins.
 
 The `assert()` statement 'enforces the contract', i.e. that a valid array with at least one member is passed to the max function.
 
