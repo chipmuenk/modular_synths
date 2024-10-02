@@ -95,7 +95,7 @@ The following experiments all use the Teensy 4.0 board, see the following image 
 
 Some experiments stream audio via the USB interface, requiring only the Teensy board, some use the Teensy Audio Shield for analog input and / or output. With the help of the Audio System Design Tool (GUI), sources and sinks can be exchanged easily.
 
-- [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console of the Arduino IDE.
+- [Audio pass-through via USB - setup and debugging](teensy_usb_audio_loopback.md): Receive an audio USB stream from your computer and send it back. Use Audacity to stream, receive and analyze audio signals. Debug the code by printing audio peak values to the serial console of the Arduino IDE. This experiment also describes Audacity setup.
 - [Audio shield as a headphone DAC](teensy_usb_dac_audio.md): Setup the Codec on the Teensy audio shield and route an audio stream from the USB interface to it via I2S. Output the analog signal to the headphone output and control its volume with a potentiometer. Optionally, the signal can be output to USB in parallel.
 - [Audio pass-through using audio shield and stereo effect](teensy_adc_dac_audio_stereo.md): Read an audio stream from the ADC of the Codec on the Teensy audio shield and write it back to the DAC of the Codec, passing the analog signal to the headphone output. The stereo signal is panned between left and right channel with a slow sinusoidal signal, using the multiplier and the mixer block.
 - [Playing a sound file from SD card with reverb](teensy_audio_dac_sd_card_reverb.md): Play a sound file from an SD card (requires audio shield or Teensy 4.1) and / or analog input / USB input and apply reverb.
@@ -103,9 +103,9 @@ Some experiments stream audio via the USB interface, requiring only the Teensy b
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
 - [Audio filtering with biquad IIR filters](teensy_usb_audio_iir_filter_biquad.md) (under development)
 - [Audio filtering with state-variable IIR filters](teensy_usb_audio_iir_filter_state_variable.md) (under development)
-- [Creating custom audio objects with AudioRecordQueue and AudioPlayQueue](teensy_audio_custom_queue.md)
-- [Creating custom audio objects by deriving from AudioStream](teensy_audio_custom_stream.md)
-- FFT on the Teensy with [Hackster.io Teensy Audio](https://youtu.be/S8A7ZuupS_M)
+- [FFT Analysis of audio stream](teensy_audio_fft_analysis.md) (under development)
+- [Creating custom audio objects with AudioRecordQueue and AudioPlayQueue](teensy_audio_custom_queue.md) (under development)
+- [Creating custom audio objects by deriving from AudioStream](teensy_audio_custom_stream.md) (under development)
 - Requantization
 
 ### Youtube Videos

@@ -6,15 +6,21 @@
 
 A first experiment that requires only the Teensy board and Audacity (or another audio software) on the PC: An audio stream is generated, received and analyzed with Audacity, using the USB audio input and output of the Teensy board. The peak values of the audio signal are printed to the console which is helpful for debugging. In the end, the usage of `delay()` vs. `millis()` vs. `elapsedMillis` is discussed. 
 
-## Audio Buffering
+## Audio Setup and Buffering
 
 The TeensyDuino audio library is hard-coded for 16-bit, 44.1kHz sample rate, with a 128-sample buffer (2.9 ms latency). The USB connection is hard-coded for stereo. During compilation, the Arduino IDE needs to be set to `Tools -> USB Type -> Audio`. Otherwise, the `AudioInputUSB` and `AudioOutputUSB` classes won't be recognized. See also [PJRC: Teensy Audio Library](https://www.pjrc.com/teensy/td_libs_Audio.html) and, in more detail, [Github: Audio Library Internals](https://github.com/TeensyUser/doc/wiki/Audio-Library-internals).
 
+When problems occur with loopback in Audacity (i.e. streaming one track and recording to a second track) it might help to switch the audio API between application (e.g. Audacity) and the sound device:
+
+- MME ((Multimedia Events, released in 1991) is the Audacity default and should be most compatible with most audio devices, but I couldn't get loopback mode working.
+- WASAPI (Windows Audio Session API, released in 2007) supposedly has the lowest latency and also supports 24 bits. It should be preferred for loopback (and helped in my case)
+- Windows DirectSound supposedly is a Direct-X related interface to WASAPI, so there should not be much difference. There might be some extra buffering which can improve stability but (of course) increases latency.
+
 The audio buffer size for all audio connections needs to be set with `AudioMemory(numberBlocks)` during `setup()` where `numberBlocks` is the number of 128 sample blocks, for a start a value of 10 (29 ms) is fine. Higher numbers reserve more memory that might be needed otherwise, lower numbers might cause "hiccups" due to buffer underflows. For debugging, use the function `AudioMemoryUsageMax()`. See the discussion [AudioMemory() - what parameter should I pass?](https://forum.pjrc.com/index.php?threads/audiomemory-what-parameter-should-i-pass.39245/). See the example [teensy_usb_audio_fir_filter.md](./teensy_usb_audio_fir_filter.md) for an example how to use these functions.
 
-The roundtrip latency is higher than that, probably due to additional buffering by the operating system.
+The roundtrip latency is higher than that, probably due to additional buffering by the operating system. If needed (e.g. for multi-track recordings) this can be accounted for in the Audacity settings.
 
-The additional `delay()` statements in the setup() part help to avoid some initial glitches in the signal.
+The additional `delay()` statements in the `setup()` part help to avoid some initial glitches in the signal.
 
 Further info: 
 
