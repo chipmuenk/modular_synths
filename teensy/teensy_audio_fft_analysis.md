@@ -6,6 +6,8 @@
 
 In this example an audio stream with sample rate of 44.1 kHz is analysed with a 1024 point FFT, the first 25 bins (0 ... 1.1 kHz) are printed to the serial monitor. This based on the example `File -> Examples -> Audio -> ...`. Additionally, the maximum value, its index and the corresponding frequency is printed.
 
+See also "FFT on the Teensy with [Hackster.io Teensy Audio"](https://youtu.be/S8A7ZuupS_M)
+
 ## Teensy GUI
 
 <img src="../img/teensy_gui_audio_IIR_filter.png" alt="Teensy GUI: Filtering of USB audio with IIR filters" width="50%"/>
