@@ -10,7 +10,7 @@ See also "FFT on the Teensy with [Hackster.io Teensy Audio"](https://youtu.be/S8
 
 ## Teensy GUI
 
-<img src="../img/teensy_gui_audio_IIR_filter.png" alt="Teensy GUI: Filtering of USB audio with IIR filters" width="50%"/>
+<img src="../img/teensy_gui_audio_fft_notch.png" alt="Teensy GUI: FFT analysis of audio stream and filter configuration" width="50%"/>
 
 ## Code
 
