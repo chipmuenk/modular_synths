@@ -16,21 +16,23 @@ See also "FFT on the Teensy with [Hackster.io Teensy Audio"](https://youtu.be/S8
 
 ### Class AudioAnalyzeFFT1024
 
-The class `AudioAnalyzeFFT1024` supports the following methods and objects (instantiated as `fft1024` here):
+The class `AudioAnalyzeFFT1024` (instantiated e.g. as `fft1024`) supports the following methods and objects:
 
 - `fft1024.available()` returns `True` every time the FFT has produced new data (approx. 86 times per second).
 
-- `fft1024.read(bin)` returns the magnitude of the corresponding bin (0 ... 511) as a float where a sine input with amplitude 1.0 and a suitable frequency yields an output of 0.5 (double-sideband scaling). `fft1024.read(firstBin, lastBin)` returns the sum of the specified bins. The higher audio octaves contain many bins, which can be read as a group for audio visualization.
+- `fft1024.read(bin)` returns the magnitude of the corresponding bin (0 ... 511) as a float. A sine input with amplitude 1.0 with the "bin frequency" yields an output of 0.5 (double-sideband scaling). 
 
-- The array `fft1024.output` contains the 512 raw (unscaled) `uint16_t` output bins. For some reason, `read(bin) = output[bin] / (1024 * 16)`.
+- `fft1024.read(firstBin, lastBin)` returns the sum of the specified bins. The higher audio octaves contain many bins, which can be read as a group for audio visualization.
 
-- The window is set with `fft1024.windowFunction(window)` where the default window function is `AudioWindowHanning1024` (i.e. a Hann window). `fft1024.windowFunction(NULL)` yields rectangular windowing.
+- The array `fft1024.output` contains the 512 raw (unscaled) `uint16_t` output bins. For some reason (probably for optimum numeric accuracy), the scaling is `read(bin) = output[bin] / (1024 * 16)`.
 
-The name of the `AudioAnalyzeFFT256` methods comply to a similar scheme.
+- The window function is set with `fft1024.windowFunction(window)` where the default window function is `AudioWindowHanning1024` (i.e. a Hann window). `fft1024.windowFunction(NULL)` yields rectangular windowing.
+
+The names of the `AudioAnalyzeFFT256` methods comply to a similar scheme.
 
 ### Library teensy_lib
 
-Functions are stored in a separate library in order to keep the main file short. To create header and library files `teensy_lib.h` and `teensy_lib.cpp`, you need to open a new tab in the Arduino IDE ('...' on the right hand side) and create the files. Or you simply copy the files into the sketch directory and restart the IDE.
+Functions are stored in a separate library in order to keep the main file short. To create header and library files `teensy_lib.h` and `teensy_lib.cpp`, you need to open a new tab in the Arduino IDE ('...' on the right hand side). Or you simply copy the files into the sketch directory and restart the IDE.
 
 #### teensy_lib.h
 
@@ -111,22 +113,31 @@ The `for` loop starts with the second element of the array, because `max_value` 
 #include <SerialFlash.h>
 #include "teensy_lib.h"  // includes from sketch folder
 
+#include <Audio.h>
+#include <Wire.h>
+#include <SPI.h>
+#include <SD.h>
+#include <SerialFlash.h>
+
 // GUItool: begin automatically generated code
-AudioSynthWaveformSine   sine1;          //xy=402,1164
-AudioInputUSB            usb_i;          //xy=403,1199
-AudioMixer4              mixer1;         //xy=551,1183
-AudioFilterBiquad        biquad1;        //xy=709,1183
-AudioAnalyzeFFT1024      fft1024;        //xy=714,1222
-AudioOutputUSB           usb_o;          //xy=861,1184
+AudioSynthWaveformSine   sine1;          //xy=311,118
+AudioInputUSB            usb_i;          //xy=312,153
+AudioMixer4              mixer1;         //xy=460,137
+AudioFilterBiquad        biquad1;        //xy=618,137
+AudioAnalyzeFFT1024      fft1024_1;      //xy=623,176
+AudioAnalyzeFFT1024      fft1024_2;      //xy=764,176
+AudioOutputUSB           usb_o;          //xy=770,138
 
 AudioConnection          patchCord1(sine1, 0, mixer1, 0);
 AudioConnection          patchCord2(usb_i, 0, mixer1, 1);
 AudioConnection          patchCord3(usb_i, 1, mixer1, 2);
 AudioConnection          patchCord4(mixer1, biquad1);
-AudioConnection          patchCord5(mixer1, fft1024);
+AudioConnection          patchCord5(mixer1, fft1024_1);
 AudioConnection          patchCord6(biquad1, 0, usb_o, 0);
 AudioConnection          patchCord7(biquad1, 0, usb_o, 1);
+AudioConnection          patchCord8(biquad1, fft1024_2);
 // GUItool: end automatically generated code
+
 
 void setup() {
 Serial.begin(9600);
@@ -137,7 +148,7 @@ mixer1.gain(0, 1.0);
 mixer1.gain(1, 0.7);
 mixer1.gain(2, 0.7);
 biquad1.setNotch(0, 300);
-// fft1024.windowFunction(NULL);  // set rect window
+// fft1024_1.windowFunction(NULL);  // set rect window
 
 AudioMemory(8);  // allocate buffer memory for audio streams
 
@@ -151,17 +162,17 @@ void loop()
 {
 // print Fourier Transform data to the Arduino Serial Monitor
 // when new data becomes available
-  if (fft1024.available()) {
+  if (fft1024_1.available()) {
     
     Serial.print("FFT: ");
     for (int i=0; i<30; i++) {  // 0-25  -->  DC to 1.25 kHz
-      float S_i = fft1024.read(i);  // scaled, float FFT
+      float S_i = fft1024_1.read(i);  // scaled, float FFT
       printNumber(S_i);
-      // uint16_t n_raw = fft1024.output[i];  // raw, unscaled FFT
+      // uint16_t n_raw = fft1024_1.output[i];  // raw, unscaled FFT
       // printNumberInt((int)n_raw); // type cast from uint16_t to int
     }
 
-    findMax(fft1024.output, 512, max_idx, max_value);
+    findMax(fft1024_1.output, 512, max_idx, max_value);
     Serial.print("Max = " );
     Serial.print(max_value);
     Serial.print(" @ ");
