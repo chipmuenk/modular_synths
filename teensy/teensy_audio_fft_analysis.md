@@ -4,9 +4,13 @@
 
 # FFT Analysis of an Audio Stream with Teensy
 
-In this example an audio stream with sample rate of 44.1 kHz is analysed with a 1024 point FFT, the first 25 bins (0 ... 1.1 kHz) are printed to the serial monitor. This based on the example `File -> Examples -> Audio -> ...`. Additionally, the maximum value, its index and the corresponding frequency is printed.
+In this example an audio stream with sample rate of 44.1 kHz is mixed with a sine signal and analysed with a 1024 point FFT, the first 25 bins (0 ... 1.1 kHz) are printed to the serial monitor. This is based on the example `File -> Examples -> Audio -> ...`. Additionally, the maximum value, its index and the corresponding frequency is printed.
 
-See also "FFT on the Teensy with [Hackster.io Teensy Audio"](https://youtu.be/S8A7ZuupS_M)
+When a button is pressed, the bin with the current maximum of the FFT is stored and the frequency of the notch filter is adapted correspondingly. The notched output is also analyzed with an FFT, here, only the maximum and its index are printed.
+
+Every pin of the Teensy can be configured as a digital input or output, an integrated pullup can be activated for input pins (`pinMode(pin_no, INPUT_PULLUP)`). The numbering scheme corresponds to the numbers printed on the Teensy board, ranging between 0 and 23.
+
+See also ["FFT on the Teensy with Hackster.io Teensy Audio"](https://youtu.be/S8A7ZuupS_M) and ["FFT: Fun with Fourier Transform"](https://learn.adafruit.com/fft-fun-with-fourier-transforms/overview-1).
 
 ## Teensy GUI
 
@@ -113,12 +117,6 @@ The `for` loop starts with the second element of the array, because `max_value` 
 #include <SerialFlash.h>
 #include "teensy_lib.h"  // includes from sketch folder
 
-#include <Audio.h>
-#include <Wire.h>
-#include <SPI.h>
-#include <SD.h>
-#include <SerialFlash.h>
-
 // GUItool: begin automatically generated code
 AudioSynthWaveformSine   sine1;          //xy=311,118
 AudioInputUSB            usb_i;          //xy=312,153
@@ -132,14 +130,21 @@ AudioConnection          patchCord1(sine1, 0, mixer1, 0);
 AudioConnection          patchCord2(usb_i, 0, mixer1, 1);
 AudioConnection          patchCord3(usb_i, 1, mixer1, 2);
 AudioConnection          patchCord4(mixer1, biquad1);
-AudioConnection          patchCord5(mixer1, fft1024_1);
+// AudioConnection          patchCord5(mixer1, fft1024_1); // direct
+AudioConnection          patchCord8(biquad1, fft1024_1); 
 AudioConnection          patchCord6(biquad1, 0, usb_o, 0);
 AudioConnection          patchCord7(biquad1, 0, usb_o, 1);
-AudioConnection          patchCord8(biquad1, fft1024_2);
+//AudioConnection          patchCord8(biquad1, fft1024_2);  // this freezes first FFT ?
 // GUItool: end automatically generated code
 
+// const int ledPin = 6;
+const int buttonPin = 11;
+const int testPin = 12;
 
 void setup() {
+pinMode(buttonPin, INPUT_PULLUP);
+pinMode(LED_BUILTIN, OUTPUT);
+pinMode(testPin, OUTPUT);
 Serial.begin(9600);
 delay(300);
 sine1.frequency(16 * 44100 / 1024);
@@ -155,14 +160,18 @@ AudioMemory(8);  // allocate buffer memory for audio streams
 // Initialize the system
 Serial.println("setup done");
 }
+byte buttonPreviousState = HIGH;         // what state was the button last time
 unsigned long last_time_perf = millis();
-uint16_t max_idx, max_value;
+unsigned long last_time_button = millis();
+uint16_t max_idx, max_value, max_filt_idx, max_filt_value;
+float max_freq = 500.0;
+float max_filt_freq = 500;
 
 void loop()
 {
 // print Fourier Transform data to the Arduino Serial Monitor
 // when new data becomes available
-  if (fft1024_1.available()) {
+  if (fft1024_1.available() ) {
     
     Serial.print("FFT: ");
     for (int i=0; i<30; i++) {  // 0-25  -->  DC to 1.25 kHz
@@ -173,18 +182,40 @@ void loop()
     }
 
     findMax(fft1024_1.output, 512, max_idx, max_value);
+    // findMax(fft1024_2.output, 512, max_filt_idx, max_filt_value);
+    max_freq = (float)max_idx * 44100.0 / 1024.0; 
+    max_filt_freq = (float)max_filt_idx * 44100.0 / 1024.0; 
     Serial.print("Max = " );
     Serial.print(max_value);
     Serial.print(" @ ");
     Serial.print(max_idx);
     Serial.print(" = ");
-    Serial.print((float)max_idx * 44100.0 / 1024.0);
+    Serial.print(max_freq);
+    Serial.print(" Hz");
+    Serial.print("|| Max (filt.)= " );
+    Serial.print(max_filt_value);
+    Serial.print(" @ ");
+    Serial.print(max_filt_idx);
+    Serial.print(" = ");
+    Serial.print(max_filt_freq);
     Serial.println(" Hz");
 
     float freq = 100.0 + (float)analogRead(15); // scale from 100 ... 1123 
     sine1.frequency(freq);
   }
-  
+  // read button every 100 ms - this also performs de-bouncing
+  if (millis() - last_time_button >= 100) {
+    byte buttonState = digitalRead(buttonPin);
+    if (buttonState == LOW && buttonPreviousState == HIGH)
+    {
+      biquad1.setNotch(0, max_freq);
+    }
+    buttonPreviousState = buttonState;
+    digitalWrite(testPin, buttonState);  // copy state to another pin for debugging
+    digitalWrite(LED_BUILTIN, !buttonState); // turn on LED when button is pressed
+    last_time_button = millis();  // update time variable
+  }
+
 // print information about processor and memory usage every 2500 ms
 if (millis() - last_time_perf >= 2500) {
     Serial.print("Proc = ");
