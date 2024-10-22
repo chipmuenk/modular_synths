@@ -103,7 +103,7 @@ Some experiments stream audio via the USB interface, requiring only the Teensy b
 - [Audio filtering with FIR filters](teensy_usb_audio_fir_filter.md)
 - [Audio filtering with biquad IIR filters](teensy_usb_audio_iir_filter_biquad.md) (under development)
 - [Audio filtering with state-variable IIR filters](teensy_usb_audio_iir_filter_state_variable.md) (under development)
-- [FFT Analysis of audio stream](teensy_audio_fft_analysis.md) (under development)
+- [FFT Analysis of audio stream](teensy_audio_fft_analysis.md): Mix an audio input with a sine signal, analyze the mix with a FFT and notch out the frequency where the FFT has its maximum.
 - [Creating custom audio objects with AudioRecordQueue and AudioPlayQueue](teensy_audio_custom_queue.md) (under development)
 - [Creating custom audio objects by deriving from AudioStream](teensy_audio_custom_stream.md) (under development)
 - Requantization
