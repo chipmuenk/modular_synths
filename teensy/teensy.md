@@ -17,6 +17,9 @@ Recent Teensy microcontroller boards are build around 32 bit ARM controllers (se
 
 - [Pinout](https://www.pjrc.com/audio-shield-for-teensy-4-0/) and [schematic](https://www.pjrc.com/store/teensy3_audio.html) for Teensy 4.0 audio shield
 
+The Teensy Audio Shield adds analog audio I/O and an SD-card reader, it can be fitted to the Teensy board using 2.54mm Pin Header. Using stackable headers with long pins allows plugging the stacked boards into a breadboard. In the fotos, an analog microfone and a volume potentiometer has been soldered to the audio shield. The potentiometer is connected to pin 15 of the Teensy and can be used as a general control.
+
+
 # Software
 
 ## Teensyduino
