@@ -106,8 +106,8 @@ AudioMemory(8);  // allocate buffer memory for audio streams
 
 // Initialize the filter coefficients
 biquad_l.setCoefficients(0, coeffs_notch);
-biquad_r.setCoefficients(0, coeffs_lp[0]);
-biquad_r.setCoefficients(1, coeffs_lp[1]);
+for (int i=0; i<NUM_SECTONS; i+=5) { 
+    biquad_r.setCoefficients(i, coeffs_lp[i:i-1]);
 Serial.println("setup done");
 }
 
@@ -131,6 +131,39 @@ if (millis() - last_time >= 2500) {
 }
 ```
 
+The filter coefficients are imported via `filters_iir.h`
+
+```C
+// filters_iir.h
+#define NUM_SECTIONS 2  // Number of second-order sections
+extern short low_pass[];
+// extern short band_pass[];
+```
+
+and `filters_iir.cpp`
+
+```C
+// filters_iir.cpp
+#include "filters_iir.h"
+double low_pass[NUM_SECTIONS * 5] = {
+#include "lp_1000_44100.h"
+};
+
+// double band_pass[NUM_COEFFS] = {
+// #include "bp_1200_1700.h"
+// };
+```
+
+which imports the actual coefficients for an IIR lowpass filter with a passband 0 ... 1000 Hz and a stopband 2000 ... 22050 Hz (f_S/2).
+
+```C
+// lp_1000_44100.h
+double coeffs_lp[10] = {
+    // two sections
+    0.005009993265049967, 0.005370024900373366, 0.005009993265049968, 1.6295801387915057, -0.7159415650206529,
+    1.0, -0.47923815089965677, 1.0, 1.5523656037391145, -0.8935430745699543
+    }
+...
 ## Measurement
 
 Generate a stereo track with 44100 Hz sampling frequency and e.g. 5 s of white noise or a chirp signal. Record the filtered signal.
