@@ -118,23 +118,24 @@ The `for` loop starts with the second element of the array, because `max_value` 
 #include "teensy_lib.h"  // includes from sketch folder
 
 // GUItool: begin automatically generated code
-AudioSynthWaveformSine   sine1;          //xy=311,118
-AudioInputUSB            usb_i;          //xy=312,153
-AudioMixer4              mixer1;         //xy=460,137
-AudioFilterBiquad        biquad1;        //xy=618,137
-AudioAnalyzeFFT1024      fft1024_1;      //xy=623,176
-AudioAnalyzeFFT1024      fft1024_2;      //xy=764,176
-AudioOutputUSB           usb_o;          //xy=770,138
+AudioSynthWaveformSine sine1;  //xy=311,118
+AudioInputI2S i2s2;             //xy=312,153
+AudioMixer4 mixer1;             //xy=460,137
+AudioFilterBiquad biquad1;      //xy=618,137
+AudioAnalyzeFFT1024 fft1024_1;  //xy=623,176
+AudioOutputI2S i2s1;  //xy=770,138
 
-AudioConnection          patchCord1(sine1, 0, mixer1, 0);
-AudioConnection          patchCord2(usb_i, 0, mixer1, 1);
-AudioConnection          patchCord3(usb_i, 1, mixer1, 2);
-AudioConnection          patchCord4(mixer1, biquad1);
-// AudioConnection          patchCord5(mixer1, fft1024_1); // direct
-AudioConnection          patchCord8(biquad1, fft1024_1); 
-AudioConnection          patchCord6(biquad1, 0, usb_o, 0);
-AudioConnection          patchCord7(biquad1, 0, usb_o, 1);
+AudioConnection patchCord1(sine1, 0, mixer1, 0);
+AudioConnection patchCord2(i2s2, 0, mixer1, 1);
+AudioConnection patchCord3(i2s2, 1, mixer1, 2);
+AudioConnection patchCord4(mixer1, biquad1);
+AudioConnection patchCord5(mixer1, fft1024_1);  // direct
+AudioConnection patchCord6(biquad1, 0, i2s1, 0);
+AudioConnection patchCord7(biquad1, 0, i2s1, 1);
 //AudioConnection          patchCord8(biquad1, fft1024_2);  // this freezes first FFT ?
+// GUItool: end automatically generated code
+
+AudioControlSGTL5000 sgtl5000_1;  //xy=512,428
 // GUItool: end automatically generated code
 
 // const int ledPin = 6;
@@ -142,94 +143,100 @@ const int buttonPin = 11;
 const int testPin = 12;
 
 void setup() {
-pinMode(buttonPin, INPUT_PULLUP);
-pinMode(LED_BUILTIN, OUTPUT);
-pinMode(testPin, OUTPUT);
-Serial.begin(9600);
-delay(300);
-sine1.frequency(16 * 44100 / 1024);
-sine1.amplitude(0.5);
-mixer1.gain(0, 1.0);
-mixer1.gain(1, 0.7);
-mixer1.gain(2, 0.7);
-biquad1.setNotch(0, 300);
-// fft1024_1.windowFunction(NULL);  // set rect window
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(testPin, OUTPUT);
+  Serial.begin(9600);
+  AudioMemory(15);
+  sgtl5000_1.enable();
+  sgtl5000_1.volume(0.5);
+  sgtl5000_1.inputSelect(AUDIO_INPUT_MIC);
+  delay(300);
+  sine1.frequency(16 * 44100 / 1024);
+  sine1.amplitude(0.5);
+  mixer1.gain(0, 0.5);
+  mixer1.gain(1, 0.5);
+  mixer1.gain(2, 0.5);
+  biquad1.setNotch(0, 300);
+  // fft1024_1.windowFunction(NULL);  // set rect window
 
-AudioMemory(8);  // allocate buffer memory for audio streams
-
-// Initialize the system
-Serial.println("setup done");
+  // Initialize the system
+  Serial.println("setup done");
 }
-byte buttonPreviousState = HIGH;         // what state was the button last time
+byte buttonPreviousState = HIGH;  // what state was the button last time
 unsigned long last_time_perf = millis();
 unsigned long last_time_button = millis();
 uint16_t max_idx, max_value, max_filt_idx, max_filt_value;
 float max_freq = 500.0;
 float max_filt_freq = 500;
+bool bPrintFFTValues = false;
 
-void loop()
-{
-// print Fourier Transform data to the Arduino Serial Monitor
-// when new data becomes available
-  if (fft1024_1.available() ) {
-    
-    Serial.print("FFT: ");
-    for (int i=0; i<30; i++) {  // 0-25  -->  DC to 1.25 kHz
-      float S_i = fft1024_1.read(i);  // scaled, float FFT
-      printNumber(S_i);
-      // uint16_t n_raw = fft1024_1.output[i];  // raw, unscaled FFT
-      // printNumberInt((int)n_raw); // type cast from uint16_t to int
+void loop() {
+  // print Fourier Transform data to the Arduino Serial Monitor
+  // when new data becomes available
+  if (fft1024_1.available()) {
+    if (bPrintFFTValues) {
+      Serial.print("FFT: ");
+      for (int i = 0; i < 30; i++) {    // 0-25  -->  DC to 1.25 kHz
+        float S_i = fft1024_1.read(i);  // scaled, float FFT
+        printNumber(S_i);
+        // uint16_t n_raw = fft1024_1.output[i];  // raw, unscaled FFT
+        // printNumberInt((int)n_raw); // type cast from uint16_t to int
+      }
     }
-
     findMax(fft1024_1.output, 512, max_idx, max_value);
     // findMax(fft1024_2.output, 512, max_filt_idx, max_filt_value);
-    max_freq = (float)max_idx * 44100.0 / 1024.0; 
-    max_filt_freq = (float)max_filt_idx * 44100.0 / 1024.0; 
-    Serial.print("Max = " );
-    Serial.print(max_value);
-    Serial.print(" @ ");
-    Serial.print(max_idx);
-    Serial.print(" = ");
-    Serial.print(max_freq);
-    Serial.print(" Hz");
-    Serial.print("|| Max (filt.)= " );
-    Serial.print(max_filt_value);
-    Serial.print(" @ ");
-    Serial.print(max_filt_idx);
-    Serial.print(" = ");
-    Serial.print(max_filt_freq);
-    Serial.println(" Hz");
-
-    float freq = 100.0 + (float)analogRead(15); // scale from 100 ... 1123 
+    max_freq = (float)max_idx * 44100.0 / 1024.0;
+    max_filt_freq = (float)max_filt_idx * 44100.0 / 1024.0;
+    if (bPrintFFTValues) {
+      Serial.print("Max = ");
+      Serial.print(max_value);
+      Serial.print(" @ ");
+      Serial.print(max_idx);
+      Serial.print(" = ");
+      Serial.print(max_freq);
+      Serial.print(" Hz");
+      Serial.print("|| Max (filt.)= ");
+      Serial.print(max_filt_value);
+      Serial.print(" @ ");
+      Serial.print(max_filt_idx);
+      Serial.print(" = ");
+      Serial.print(max_filt_freq);
+      Serial.println(" Hz");
+    }
+    float freq = 100.0 + (float)analogRead(15);  // scale from 100 ... 1123
+    //Serial.print(freq);
+    //Serial.print(" Hz ");
     sine1.frequency(freq);
   }
   // read button every 100 ms - this also performs de-bouncing
   if (millis() - last_time_button >= 100) {
+
     byte buttonState = digitalRead(buttonPin);
-    if (buttonState == LOW && buttonPreviousState == HIGH)
-    {
+    if (buttonState == LOW && buttonPreviousState == HIGH) {
       biquad1.setNotch(0, max_freq);
     }
     buttonPreviousState = buttonState;
-    digitalWrite(testPin, buttonState);  // copy state to another pin for debugging
-    digitalWrite(LED_BUILTIN, !buttonState); // turn on LED when button is pressed
-    last_time_button = millis();  // update time variable
+    digitalWrite(testPin, buttonState);       // copy state to another pin for debugging
+    digitalWrite(LED_BUILTIN, !buttonState);  // turn on LED when button is pressed
+    last_time_button = millis();              // update time variable
   }
 
-// print information about processor and memory usage every 2500 ms
-if (millis() - last_time_perf >= 2500) {
+  // print information about processor and memory usage every 2500 ms
+  if (millis() - last_time_perf >= 2500) {
     Serial.print("Proc = ");
     Serial.print(AudioProcessorUsage());  // usage in percent
-    Serial.print(" (");    
+    Serial.print(" (");
     Serial.print(AudioProcessorUsageMax());  // max. processor usage
     Serial.print("),  Mem = ");
     Serial.print(AudioMemoryUsage());  // memory usage in blocks
-    Serial.print(" (");    
-    Serial.print(AudioMemoryUsageMax()); // max. memory usage in blocks
+    Serial.print(" (");
+    Serial.print(AudioMemoryUsageMax());  // max. memory usage in blocks
     Serial.println(")");
     last_time_perf = millis();  // update time variable
-    }
+  }
 }
+
 
 ```
 
