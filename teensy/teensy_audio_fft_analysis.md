@@ -248,6 +248,44 @@ A sine source is added on the Teensy, its frequency can be set with the potentio
 
 ## Further experiments / ideas
 
+### Real-time update of coefficients
+The filter can also be defined by calculating and setting the coefficients:
+
+```c++
+double koeffizienten[5];
+float c;
+float r = 0.95;
+
+// calc koeffs
+c = (1 + 2*r*cos(2*PI*freq_est/fS) + r*r)/(1 + 2*cos(2*PI*freq_est/fS) + 1);
+// koeffizienten = [B0, B1, B2, A1, A2]
+koeffizienten[0] = c;
+koeffizienten[1] = (-2*cos(2*PI*freq_est/fS)) * c;
+koeffizienten[2] = c;
+koeffizienten[3] = -2*r*cos(2*PI*freq_est/fS);
+koeffizienten[4] = r*r;
+biquad1.setCoefficients(0, koeffizienten);
+```
+
+### Quadratic interpolation
+The frequency of the sine disturbance can be measured more accurately by interpolating between the FFT bins. An algorithm for quadratic interpolation is described here:
+
+https://ccrma.stanford.edu/~jos/sasp/Quadratic_Interpolation_Spectral_Peaks.html
+
+```c++
+double f0_estimated;
+double y0_0, ym1, yp1;
+ y0_0 = max_value;
+
+ym1 = fft1024_1.output[max_idx - 1];
+yp1 = fft1024_1.output[max_idx + 1];
+
+double p = (yp1 - ym1) / (2 * (2 * y0_0 - yp1 - ym1));
+
+f0_estimated = (max_idx + p) * fDeltaf;
+
+```
+
 ---
 
 [Back to Teensy](./teensy.md)
