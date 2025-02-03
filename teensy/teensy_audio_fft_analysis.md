@@ -182,7 +182,6 @@ void loop()
     }
 
     findMax(fft1024_1.output, 512, max_idx, max_value);
-    // findMax(fft1024_2.output, 512, max_filt_idx, max_filt_value);
     max_freq = (float)max_idx * 44100.0 / 1024.0; 
     max_filt_freq = (float)max_filt_idx * 44100.0 / 1024.0; 
     Serial.print("Max = " );
