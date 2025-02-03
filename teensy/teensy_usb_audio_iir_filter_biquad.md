@@ -29,7 +29,15 @@ The filter stages can be configured by using `setLowpass(stage, frequency, Q)`, 
 
 Creating a higher order filter with a defined pass and stop-band behaviour this way is quite difficult, probably it is easier to use a filter design tool like pyfda and export the coefficients. These coefficients can be used with `setCoefficients(stage, array[5])`
 
-Configure one stage of the filter (0 to 3) with an arbitrary filter response. The array of coefficients is in order: `b0, b1, b2, a1, a2`. Each coefficient must be $-2.0 < c < 2.0 $ and should be of type 'double'. Alternatively, it may be of type 'int', where 1.0 is represented by $2^{30} = 1073741824$.
+Configure one stage of the filter (0 to 3) with an arbitrary filter response. The array of coefficients is in order: `b0, b1, b2, a1, a2`. Each coefficient must be $-2.0 < c < 2.0 $ and should be of type 'double', e.g.
+
+
+```C
+const  float  filt_coeffs[5] = {0.031401092671463515,-0.06226480490243592,0.03140109267146351, -1.9771444854408708,0.9778210073332062};
+biquad1.setCoefficients(0, filt_coeffs);
+```
+
+Alternatively, it may be of type 'int', where 1.0 is represented by $2^{30} = 1073741824$.
 
 [Direct-form 2 (DF2)](https://ccrma.stanford.edu/~jos/filters/Direct_Form_II.html) is another filter topology, See Discussions on 
 [IIR Direct Form II Filter Implementation on T eensy 4.0](https://forum.pjrc.com/index.php?threads/iir-direct-form-ii-filter-implementation-on-teensy-4-0.69123/).
