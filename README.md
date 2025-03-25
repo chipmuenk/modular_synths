@@ -59,6 +59,10 @@ Here is a small selection of courses available on the internet:
 
 * Felix Wiegand [wgdmodular] is a module developer, a [Youtuber](https://www.youtube.com/channel/UCtgYqBXaxMV6NLOBdpVrr9w) and Instagrammer. His website also gives good tips about buying those standard but sometimes hard-to-get components like jacks, pots, standoffs etc. His [GitHub repo](https://github.com/wgd-modular) features firmware for his Daisy Seed module "Loewenzahnhonig" module and KiCAD components and footprints for Eurorack modules.
 * Compact (outer diameter 30 mm) 24 RBG LED ring from [Duppa Components](https://www.duppa.net/shop/rgb-led-ring-small) for rotary encoders
+* 3.5 mm TRS (Tip-Ring-Sleeve) jacks are available as "PJ301M" for vertical mounting where the "3" stands for 3.5 mm (and in a similar fashion "2" for 2.5 mm and "6" for 6.35 mm)
+* Suitable potentiometers for vertical PCB mounting with and without nut can be found as type "RV09" (3 pins) or "RK11" (4 pins with center tap) or "RK14" (7 pins, stereo). The classical green pots with nut are "RK097", for horizontal and vertical mounting. These pots are often used in pedals.
+
+  The values are coded like "B203" where "A" is a logarithmic and "B" a linear pot. The value in this case is 20 x 10<sup>3</sup> = 20 kOhm.
 
 ### Breadboarding
 
