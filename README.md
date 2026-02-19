@@ -96,6 +96,14 @@ The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 
   * [Raspberry Pi Pico MIDI Channel Router](https://diyelectromusic.wordpress.com/2021/06/13/raspberry-pi-pico-midi-channel-router/) routes a MIDI In port to one of 8 MIDI Out ports, utilizing a.o. the RPi PIO functionality.  With detailled explanation of channel decoding - funtastic!
   * [Raspberry Pi Pico MIDI Channel Merger](https://diyelectromusic.wordpress.com/2021/12/19/raspberry-pi-pico-midi-channel-merger/) works the other way round, merging signals from eight MIDI Inputs to one MIDI output.
   * [Raspberry Pi Pico Multi MIDI Router](https://diyelectromusic.wordpress.com/2021/12/28/raspberry-pi-pico-multi-midi-router/) is a five part project for a general 6-IN, 6-OUT MIDI routing device.
+ 
+### MIDI & Strudel
+
+[**Strudel**](https://strudel.cc/) is a language for coding live music in the browser. With
+
+> midichan(14);
+> chord("<C^7 A7 Dm7 G7>").voicing().midi('MIDIFACE 2X2 Midi Out 1')
+
 
 ## Digital Hardware and Components
 
