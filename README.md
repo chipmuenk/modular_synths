@@ -102,7 +102,7 @@ The retro audio SN76477 complex sound generator IC (Texas Instruments) from the 
 [**Strudel**](https://strudel.cc/) is a language for coding live music in the browser. With
 
 > midichan(14);
-> \$: chord("<C^7 A7 Dm7 G7>").midi('MIDIFACE 2X2 Midi Out 1')
+> \$ : chord("<C^7 A7 Dm7 G7>").midi('MIDIFACE 2X2 Midi Out 1')
 > \$: sound("bd*4, [~ <sd cp>]*2, [~ hh]*4").bank("RolandTR909")
 
 
