@@ -102,6 +102,11 @@ For more information refer to the MIDI related project: [esp32_usb_midi](https:/
 - [ESP32 A1S with Arduino Audio Tools](https://youtu.be/oqtkR2FRKYI): Various examples for streaming audio (generated, I2S, HTTP, Bluetooth) with the ESP32 A1S using the Arduino IDE.
 - [Repo](https://github.com/thaaraak/es8388) with code for controlling the ES8388 codec
 
+## ESP32Synth
+Ultra-Fast Bare-Metal Synth Engine for Maximum Polyphony
+> A high-performance, polyphonic audio synthesis library for the ESP32. Engineered for applications requiring extreme optimization, zero-latency audio, massive polyphony (up to 350+ voices), custom DSP hooks, and direct SD card audio streaming.
+https://github.com/danilogcrf2-oss/ESP32Synth
+
 ## TBD Module
 
 An open-source soft- and hardware Eurorack module based on ESP32 module by [Robert Manzke](https://github.com/ctag-fh-kiel) of University Kiel with lots of code for various audio modules, including a collection of various digital implementations of the Moog VCF.
@@ -111,6 +116,19 @@ An open-source soft- and hardware Eurorack module based on ESP32 module by [Robe
 Although the Synthux modules are built around Daisy Seed (STM32) microcontrollers, the open source code is interesting to look at under https://github.com/Synthux-Academy. For uploading files to the Daisy Seed, the [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html) needs to be installed to get the required drivers. This is described [here](https://github.com/electro-smith/DaisyWiki/wiki/1a.-Getting-Started-(Arduino-Edition)) and in detail [here](https://github.com/stm32duino/Arduino_Core_STM32/wiki/Getting-Started) ("Extra Step"). With the drivers installed, binaries can be installed on the Daisy Seed directly by using the [Daisy Web Programmer](https://electro-smith.github.io/Programmer/) (Chrome or Edge only, unfortunately). The platform "seed" has to be selected.
 
 ## ESP32 Hardware
+### Amyboard and Amy
+https://www.amyboard.com/
+
+A fully complete audio synthesizer for US$29.90, available from makerfabs worldwide. It can be:
+
+- a synthesizer module with online loadable patches (with a browser-based simulator!)
+- an audio dev board, with an out-of-the-box on-device Micropython shell
+- a 10 HP Eurorack module (two CV in and out jacks, MIDI in/out, analog audio in/out, S/PDIF audio in / out)
+
+It is based on [AMY](https://github.com/shorepine/amy/tree/main), the high-performance fixed-point music synthesizer library
+
+It also runs on the [Tulip Computer](https://tulip.computer/)
+
 
 ### ESP32 Audio Kit
 
